@@ -78,35 +78,35 @@ async function removeBlackBackground(inputPath) {
 }
 
 function toDarkVariant(data, channels) {
-  const out = Buffer.from(data);
+  // Sur fond sombre, la bannière blanche du logo suffit pour le contraste :
+  // le texte « Ignite » doit rester foncé (noir sur blanc), pas être éclairci.
+  return Buffer.from(data);
+}
 
-  for (let i = 0; i < out.length; i += channels) {
-    const a = out[i + 3];
-    if (a === 0) continue;
+async function writeDarkVariantFromLightLogo() {
+  const { data, info } = await sharp(LOGO_OUT).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  const darkData = toDarkVariant(data, info.channels);
 
-    const r = out[i];
-    const g = out[i + 1];
-    const b = out[i + 2];
-    const isCyan = b > 110 && b > r + 25 && g > r + 10;
-    const isLight = r > 185 && g > 185 && b > 185;
+  await sharp(darkData, {
+    raw: { width: info.width, height: info.height, channels: info.channels },
+  })
+    .png()
+    .toFile(LOGO_DARK_OUT);
 
-    if (isCyan || isLight) continue;
-
-    if (r < 95 && g < 95 && b < 95) {
-      out[i] = 244;
-      out[i + 1] = 244;
-      out[i + 2] = 245;
-    } else if (r < 170 && g < 170 && b < 170) {
-      out[i] = Math.min(255, r + 90);
-      out[i + 1] = Math.min(255, g + 90);
-      out[i + 2] = Math.min(255, b + 90);
-    }
-  }
-
-  return out;
+  console.log("Logo dark:", LOGO_DARK_OUT);
 }
 
 async function main() {
+  const sourceExists = await sharp(SOURCE)
+    .metadata()
+    .then(() => true)
+    .catch(() => false);
+
+  if (!sourceExists) {
+    await writeDarkVariantFromLightLogo();
+    return;
+  }
+
   const { pipeline, data, info } = await removeBlackBackground(SOURCE);
 
   await pipeline.clone().toFile(LOGO_OUT);
