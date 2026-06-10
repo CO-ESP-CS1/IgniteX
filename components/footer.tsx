@@ -79,9 +79,17 @@ export function Footer() {
           <p className="text-xs text-zinc-600">
             © {year} {brand.trademark}. Tous droits réservés.
           </p>
-          <p className="text-xs text-zinc-600">
-            PEJOSOFT · JM TECHNOLOGIES · BKT Labs
-          </p>
+          <div className="flex flex-col items-center gap-2 sm:items-end">
+            <p className="text-xs text-zinc-600">
+              PEJOSOFT · JM TECHNOLOGIES · BKT Labs
+            </p>
+            <Link
+              href="/cookies"
+              className="text-xs text-zinc-500 transition-colors hover:text-ignitex-300"
+            >
+              Politique de cookies
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

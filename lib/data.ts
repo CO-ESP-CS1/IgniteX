@@ -575,6 +575,7 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 export const techStack = [
   "NestJS",
+  "GraphQL",
   "Next.js",
   "React.js",
   "React Native",
