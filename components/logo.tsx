@@ -21,24 +21,11 @@ export function Logo({ variant = "header", className = "" }: LogoProps) {
         alt={brand.trademark}
         width={1024}
         height={682}
-        className={`dark:hidden ${
+        className={
           isFooter
             ? "h-10 w-auto max-w-[12rem] object-contain sm:h-11 sm:max-w-[13rem]"
             : "h-14 w-auto max-w-[15rem] object-contain sm:h-16 sm:max-w-[18rem]"
-        }`}
-        priority={!isFooter}
-      />
-      <Image
-        src="/images/ignitex-logo-dark.png"
-        alt=""
-        aria-hidden="true"
-        width={1024}
-        height={682}
-        className={`hidden dark:block ${
-          isFooter
-            ? "h-10 w-auto max-w-[12rem] object-contain sm:h-11 sm:max-w-[13rem]"
-            : "h-14 w-auto max-w-[15rem] object-contain sm:h-16 sm:max-w-[18rem]"
-        }`}
+        }
         priority={!isFooter}
       />
     </Link>
