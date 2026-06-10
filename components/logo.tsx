@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { brand } from "@/lib/data";
 
@@ -8,6 +9,25 @@ type LogoProps = {
 
 export function Logo({ variant = "header", className = "" }: LogoProps) {
   const isFooter = variant === "footer";
+
+  if (!isFooter) {
+    return (
+      <Link
+        href="/"
+        className={`group inline-flex min-w-0 items-center ${className}`}
+        aria-label={`${brand.trademark} — Accueil`}
+      >
+        <Image
+          src="/images/ignitex-logo.png"
+          alt={brand.trademark}
+          width={1024}
+          height={682}
+          className="h-9 w-auto max-w-[11rem] object-contain sm:h-10 sm:max-w-[12.5rem]"
+          priority
+        />
+      </Link>
+    );
+  }
 
   return (
     <Link
@@ -32,19 +52,10 @@ export function Logo({ variant = "header", className = "" }: LogoProps) {
       </span>
 
       <span className="flex flex-col leading-none">
-        <span
-          className={`font-semibold tracking-tight ${
-            isFooter ? "text-base text-white" : "text-base text-foreground sm:text-lg"
-          }`}
-        >
+        <span className="text-base font-semibold tracking-tight text-white">
           Ignite<span className="text-ignitex-500">X</span>
           <span className="text-[0.55em] align-super text-ignitex-500">™</span>
         </span>
-        {!isFooter && (
-          <span className="mt-0.5 hidden text-[10px] font-medium uppercase tracking-widest text-muted sm:block">
-            {brand.slogan}
-          </span>
-        )}
       </span>
     </Link>
   );
