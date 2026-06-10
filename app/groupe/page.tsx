@@ -5,7 +5,7 @@ import { brand } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: `Le groupe — ${brand.trademark}`,
-  description: `Découvrez ${brand.trademark} : PEJOSOFT, JM TECHNOLOGIES et BKT SOLUTIONS.`,
+  description: `Découvrez ${brand.trademark} : PEJOSOFT, JM TECHNOLOGIES et BKT Labs.`,
 };
 
 export default function GroupePage() {

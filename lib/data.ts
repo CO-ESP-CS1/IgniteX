@@ -4,7 +4,10 @@ export const brand = {
   slogan: "Au delà des frontières",
   tagline: "Réveille la lumière qui est en toi",
   url: "https://www.ignitex.app",
-  email: "contact@ignitex.app",
+  email: "ignitex.info@gmail.com",
+  phone: "05 694 99 45",
+  phoneTel: "+242056949945",
+  whatsapp: "https://wa.me/242056949945",
 };
 
 export type Partner = {
@@ -62,7 +65,7 @@ export const partners: Partner[] = [
       "Architecture web moderne, interfaces professionnelles et expériences en ligne soignées.",
     teaser:
       "JM TECHNOLOGIES donne forme au web IgniteX™ : sites vitrines, portails clients, tableaux de bord et interfaces claires pour chaque projet livré.",
-    image: "/images/placeholder.jpg",
+    image: "/images/groupe/jm-technologies.png",
     about:
       "JM TECHNOLOGIES porte la dimension web du groupe IgniteX™. L'entité développe les sites, portails et interfaces en ligne qui complètent nos applications mobiles et nos systèmes métiers — de la vitrine IgniteX™ aux espaces d'administration de nos clients. JM TECHNOLOGIES veille à ce que chaque projet IgniteX™ soit accessible, responsive et agréable à utiliser, que ce soit sur ordinateur, tablette ou téléphone.",
     mission:
@@ -77,24 +80,24 @@ export const partners: Partner[] = [
     visionary: {
       name: "Moussounda Jacques",
       title: "Fondateur — JM TECHNOLOGIES",
-      image: "/images/placeholder.jpg",
+      image: "/images/groupe/jm-technologies-jacques.png",
       thoughts:
         "« Le web, c'est la première impression qu'on donne au monde. Avec IgniteX™, nous voulons que chaque interface reflète le sérieux de nos systèmes : claire, rapide, professionnelle. JM TECHNOLOGIES existe pour que la technologie la plus avancée reste simple à comprendre — pour un client à Paris comme pour une communauté en Afrique. »",
     },
   },
   {
-    id: "bkt-solutions",
-    name: "BKT SOLUTIONS",
+    id: "bkt-labs",
+    name: "BKT Labs",
     role: "Développement Backend & iOS",
     description:
       "Expériences mobiles iOS premium et intégrations système de haut niveau.",
     teaser:
-      "BKT SOLUTIONS apporte l'excellence iOS à l'écosystème IgniteX™ : applications fluides, intégrations Apple et expériences mobiles haut de gamme.",
-    image: "/images/placeholder.jpg",
+      "BKT Labs apporte l'excellence iOS à l'écosystème IgniteX™ : applications fluides, intégrations Apple et expériences mobiles haut de gamme.",
+    image: "/images/groupe/bkt-labs.png",
     about:
-      "BKT SOLUTIONS est la branche iOS et intégrations avancées du groupe IgniteX™. L'entité développe les applications iPhone et iPad qui complètent l'offre Android de PEJOSOFT, en garantissant la même qualité d'expérience sur l'écosystème Apple. BKT SOLUTIONS intervient aussi sur les intégrations techniques exigeantes — paiements, notifications, services cloud — pour que chaque projet IgniteX™ fonctionne parfaitement sur tous les appareils.",
+      "BKT Labs est la branche iOS et intégrations avancées du groupe IgniteX™. L'entité développe les applications iPhone et iPad qui complètent l'offre Android de PEJOSOFT, en garantissant la même qualité d'expérience sur l'écosystème Apple. BKT Labs intervient aussi sur les intégrations techniques exigeantes — paiements, notifications, services cloud — pour que chaque projet IgniteX™ fonctionne parfaitement sur tous les appareils.",
     mission:
-      "BKT SOLUTIONS assure que les projets IgniteX™ offrent une expérience iOS au même niveau d'exigence que le reste de l'écosystème du groupe.",
+      "BKT Labs assure que les projets IgniteX™ offrent une expérience iOS au même niveau d'exigence que le reste de l'écosystème du groupe.",
     contributions: [
       "Applications iOS natives pour les projets IgniteX™",
       "Intégrations Apple (notifications, paiements, services)",
@@ -104,10 +107,10 @@ export const partners: Partner[] = [
     ],
     visionary: {
       name: "Bakouetila Vivaldi",
-      title: "Fondateur — BKT SOLUTIONS",
-      image: "/images/placeholder.jpg",
+      title: "Fondateur — BKT Labs",
+      image: "/images/groupe/bkt-labs-vivaldi.png",
       thoughts:
-        "« L'iPhone est entre les mains de millions de personnes. Avec BKT SOLUTIONS, nous voulons que les projets IgniteX™ soient à la hauteur de cette attente : fluides, élégants, fiables. Rejoindre le groupe IgniteX™, c'est partager une ambition — construire des outils qui respectent l'utilisateur, où qu'il se trouve et quel que soit son téléphone. »",
+        "« L'iPhone est entre les mains de millions de personnes. Avec BKT Labs, nous voulons que les projets IgniteX™ soient à la hauteur de cette attente : fluides, élégants, fiables. Rejoindre le groupe IgniteX™, c'est partager une ambition — construire des outils qui respectent l'utilisateur, où qu'il se trouve et quel que soit son téléphone. »",
     },
   },
 ];
@@ -342,6 +345,39 @@ export const projects: Project[] = [
       { label: "Jeunes formés", value: "150+" },
       { label: "Ateliers réalisés", value: "40+" },
       { label: "Mentors actifs", value: "15+" },
+      { label: "Plateforme", value: "v6.9" },
+    ],
+    featured: true,
+  },
+  {
+    id: "sos-job",
+    name: "SOS JOB",
+    image: "/images/projects/sos-job.png",
+    client: "SOS JOB — Offre emploi Congo Brazzaville",
+    tagline:
+      "Le premier réseau professionnel numérique du Congo, de WhatsApp à une plateforme complète",
+    description:
+      "SOS JOB est aujourd'hui la première plateforme de publication d'emploi au Congo, avec une communauté active de plus de 50 000 utilisateurs cumulés sur WhatsApp, LinkedIn et Facebook. Nous avons conçu et déployé la plateforme web et mobile qui structure cette audience : profils candidats et recruteurs (formels et informels), publication d'offres avec modération IA, génération automatique d'images brandées, diffusion multicanale via WhatsApp et réseaux sociaux, moteur de recherche et matching assisté par IA, messagerie interne et espace communautaire. Un pilote est en cours et s'appuie sur IgniteX™ Platform v6.9.",
+    highlights: [
+      "Plus de 50 000 utilisateurs — transition d'une diffusion informelle vers un espace sécurisé unique",
+      "Profils évolutifs pour candidats et recruteurs, du secteur formel comme informel",
+      "Publication d'offres intelligente avec modération IA et images générées automatiquement",
+      "Diffusion multicanale (WhatsApp, réseaux sociaux) et messagerie connectée aux canaux populaires",
+      "Moteur de recherche, matching IA, tableau de bord admin et modèle freemium intégrés",
+      "Équipé du module IgniteX™ Platform v6.9",
+    ],
+    stack: [
+      "Plateforme web & mobile",
+      "Module IA & automatisation",
+      "Intégration WhatsApp",
+      `IgniteX™ Platform v${platformVersion}`,
+    ],
+    status: "en-cours",
+    statusLabel: "Pilote en cours",
+    metrics: [
+      { label: "Utilisateurs", value: "50 000+" },
+      { label: "Canaux actifs", value: "3+" },
+      { label: "Secteurs couverts", value: "Formel & informel" },
       { label: "Plateforme", value: "v6.9" },
     ],
     featured: true,

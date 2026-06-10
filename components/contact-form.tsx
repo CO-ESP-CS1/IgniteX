@@ -17,13 +17,51 @@ const initial: FormData = {
   message: "",
 };
 
+function buildMailPayload(form: FormData) {
+  const subjectText = form.subject.trim()
+    ? `[${brand.name}] ${form.subject.trim()}`
+    : `Contact via ${brand.trademark}`;
+
+  const bodyText = [
+    `Nom : ${form.name.trim()}`,
+    `E-mail : ${form.email.trim()}`,
+    "",
+    "Message :",
+    form.message.trim(),
+    "",
+    "---",
+    `Envoyé depuis ${brand.url}`,
+  ].join("\n");
+
+  return {
+    subjectText,
+    bodyText,
+    mailto: `mailto:${brand.email}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(bodyText)}`,
+    gmail: `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(brand.email)}&su=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(bodyText)}`,
+  };
+}
+
+function openMailClient(url: string) {
+  const link = document.createElement("a");
+  link.href = url;
+  link.rel = "noopener noreferrer";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 export function ContactForm() {
   const [form, setForm] = useState<FormData>(initial);
   const [error, setError] = useState("");
+  const [fallbackLinks, setFallbackLinks] = useState<{
+    mailto: string;
+    gmail: string;
+  } | null>(null);
 
   const update = (field: keyof FormData, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
     if (error) setError("");
+    if (fallbackLinks) setFallbackLinks(null);
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -42,26 +80,9 @@ export function ContactForm() {
       return;
     }
 
-    const subject = encodeURIComponent(
-      form.subject.trim()
-        ? `[${brand.name}] ${form.subject.trim()}`
-        : `Contact via ${brand.trademark}`
-    );
-
-    const body = encodeURIComponent(
-      [
-        `Nom : ${form.name.trim()}`,
-        `E-mail : ${form.email.trim()}`,
-        "",
-        "Message :",
-        form.message.trim(),
-        "",
-        "---",
-        `Envoyé depuis ${brand.url}`,
-      ].join("\n")
-    );
-
-    window.location.href = `mailto:${brand.email}?subject=${subject}&body=${body}`;
+    const payload = buildMailPayload(form);
+    openMailClient(payload.mailto);
+    setFallbackLinks({ mailto: payload.mailto, gmail: payload.gmail });
   };
 
   const inputClass =
@@ -152,6 +173,32 @@ export function ContactForm() {
         à l&apos;adresse{" "}
         <strong className="font-medium text-foreground">{brand.email}</strong>.
       </p>
+
+      {fallbackLinks && (
+        <div className="rounded-lg border border-ignitex-200 bg-ignitex-50 px-4 py-3 text-sm dark:border-ignitex-800 dark:bg-ignitex-950/40">
+          <p className="font-medium text-foreground">
+            Rien ne s&apos;est ouvert ?
+          </p>
+          <p className="mt-1 text-muted">
+            Sur certains navigateurs ou appareils, le lien{" "}
+            <code className="text-xs">mailto:</code> ne déclenche aucune
+            application par défaut. Choisissez une option ci-dessous :
+          </p>
+          <div className="mt-3 flex flex-wrap gap-3">
+            <a href={fallbackLinks.mailto} className="btn-primary px-4 py-2 text-sm">
+              Ouvrir ma messagerie
+            </a>
+            <a
+              href={fallbackLinks.gmail}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary px-4 py-2 text-sm"
+            >
+              Ouvrir dans Gmail
+            </a>
+          </div>
+        </div>
+      )}
     </form>
   );
 }

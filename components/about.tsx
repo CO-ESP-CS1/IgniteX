@@ -21,12 +21,12 @@ export function About() {
               key={partner.id}
               className="card card-accent flex flex-col overflow-hidden"
             >
-              <div className="relative h-44 w-full border-b border-border bg-surface sm:h-48">
+              <div className="relative h-56 w-full border-b border-border bg-surface sm:h-72">
                 <Image
                   src={partner.image}
                   alt={`${partner.name} — photo`}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
@@ -76,7 +76,7 @@ export function About() {
             d&apos;excellence.
           </p>
           <footer className="mt-4 text-sm font-medium text-ignitex-600 dark:text-ignitex-400">
-            PEJOSOFT · JM TECHNOLOGIES · BKT SOLUTIONS
+            PEJOSOFT · JM TECHNOLOGIES · BKT Labs
           </footer>
         </blockquote>
       </div>

@@ -6,7 +6,7 @@ const teasers = [
     href: "/groupe",
     title: "Le groupe",
     description:
-      "Trois entités, une marque. PEJOSOFT, JM TECHNOLOGIES et BKT SOLUTIONS.",
+      "Trois entités, une marque. PEJOSOFT, JM TECHNOLOGIES et BKT Labs.",
     accent: "01",
   },
   {

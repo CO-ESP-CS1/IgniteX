@@ -16,12 +16,12 @@ export function PartnerDetail({ partner }: { partner: Partner }) {
 
         <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="overflow-hidden rounded-xl border border-border">
-            <div className="relative h-56 sm:h-72">
+            <div className="relative h-72 sm:h-96">
               <Image
                 src={partner.image}
                 alt={partner.name}
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
@@ -86,7 +86,7 @@ export function PartnerDetail({ partner }: { partner: Partner }) {
 
         <p className="mx-auto mt-10 max-w-xl text-center text-xs text-muted">
           {partner.name} agit au sein de {brand.trademark} aux côtés de PEJOSOFT,
-          JM TECHNOLOGIES et BKT SOLUTIONS — trois entités, une marque, une
+          JM TECHNOLOGIES et BKT Labs — trois entités, une marque, une
           exigence commune.
         </p>
       </div>

@@ -41,23 +41,30 @@ export function Footer() {
             </h3>
             <div className="mt-4 space-y-2 text-sm">
               <p>
-                <span className="text-zinc-600">Site :</span>{" "}
-                <a
-                  href={brand.url}
-                  className="text-ignitex-300 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {brand.url.replace("https://", "")}
-                </a>
-              </p>
-              <p>
                 <span className="text-zinc-600">E-mail :</span>{" "}
                 <a
                   href={`mailto:${brand.email}`}
                   className="text-ignitex-300 hover:underline"
                 >
                   {brand.email}
+                </a>
+              </p>
+              <p>
+                <span className="text-zinc-600">Tél. :</span>{" "}
+                <a
+                  href={`tel:${brand.phoneTel}`}
+                  className="text-ignitex-300 hover:underline"
+                >
+                  {brand.phone}
+                </a>
+                <span className="text-zinc-600"> — appel ou </span>
+                <a
+                  href={brand.whatsapp}
+                  className="text-ignitex-300 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp
                 </a>
               </p>
             </div>
@@ -73,7 +80,7 @@ export function Footer() {
             © {year} {brand.trademark}. Tous droits réservés.
           </p>
           <p className="text-xs text-zinc-600">
-            PEJOSOFT · JM TECHNOLOGIES · BKT SOLUTIONS
+            PEJOSOFT · JM TECHNOLOGIES · BKT Labs
           </p>
         </div>
       </div>

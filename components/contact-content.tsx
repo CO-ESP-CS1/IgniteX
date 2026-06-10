@@ -30,22 +30,30 @@ export function ContactContent() {
                   </a>
                 </p>
                 <p>
-                  <span className="text-muted">Site :</span>{" "}
+                  <span className="text-muted">Téléphone :</span>{" "}
                   <a
-                    href={brand.url}
+                    href={`tel:${brand.phoneTel}`}
+                    className="font-semibold text-ignitex-600 hover:underline dark:text-ignitex-400"
+                  >
+                    {brand.phone}
+                  </a>
+                  <span className="text-muted"> — disponible en </span>
+                  <a
+                    href={brand.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-semibold text-ignitex-600 hover:underline dark:text-ignitex-400"
                   >
-                    {brand.url.replace("https://", "")}
+                    WhatsApp
                   </a>
+                  <span className="text-muted"> ou appel normal</span>
                 </p>
               </div>
             </div>
           </div>
 
           <p className="mt-8 text-center text-xs text-muted">
-            PEJOSOFT CORPORATION · JM TECHNOLOGIES · BKT SOLUTIONS
+            PEJOSOFT CORPORATION · JM TECHNOLOGIES · BKT Labs
           </p>
         </div>
       </div>
