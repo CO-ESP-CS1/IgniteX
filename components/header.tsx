@@ -32,16 +32,19 @@ export function Header() {
             <ThemeSwitcherNative />
           </div>
 
-          <label
-            htmlFor={MENU_ID}
-            className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-lg bg-ignitex-500 text-white shadow-md shadow-ignitex-500/25 transition-opacity hover:opacity-90 lg:hidden"
-            style={{ WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
-            aria-label="Ouvrir le menu"
-          >
-            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
-              <path d="M4 8h16M4 12h16M4 16h16" strokeLinecap="round" />
-            </svg>
-          </label>
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeSwitcherNative variant="mobile-toggle" />
+            <label
+              htmlFor={MENU_ID}
+              className="flex h-14 w-14 shrink-0 cursor-pointer items-center justify-center text-foreground transition-opacity hover:opacity-70"
+              style={{ WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
+              aria-label="Ouvrir le menu"
+            >
+              <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
+                <path d="M4 8h16M4 12h16M4 16h16" strokeLinecap="round" />
+              </svg>
+            </label>
+          </div>
         </div>
       </header>
 

@@ -1,7 +1,10 @@
 type ThemeSwitcherNativeProps = {
-  variant?: "compact" | "full";
+  variant?: "compact" | "full" | "mobile-toggle";
   lightOnly?: boolean;
 };
+
+const mobileToggleClass =
+  "flex h-14 w-14 shrink-0 cursor-pointer items-center justify-center text-foreground transition-opacity hover:opacity-70";
 
 function SunIcon({ className }: { className?: string }) {
   return (
@@ -48,6 +51,33 @@ export function ThemeSwitcherNative({
   const shellClass = lightOnly
     ? "border-zinc-200 bg-zinc-50"
     : "border-border bg-surface";
+
+  if (variant === "mobile-toggle") {
+    return (
+      <>
+        <button
+          type="button"
+          data-theme-set="light"
+          aria-label="Activer le mode clair"
+          title="Mode clair"
+          className={`${mobileToggleClass} hidden dark:flex`}
+          style={{ WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
+        >
+          <MoonIcon className="h-6 w-6" />
+        </button>
+        <button
+          type="button"
+          data-theme-set="dark"
+          aria-label="Activer le mode sombre"
+          title="Mode sombre"
+          className={`${mobileToggleClass} dark:hidden`}
+          style={{ WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
+        >
+          <SunIcon className="h-6 w-6" />
+        </button>
+      </>
+    );
+  }
 
   if (variant === "full") {
     return (
