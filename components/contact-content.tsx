@@ -10,7 +10,7 @@ export function ContactContent() {
           <div className="card card-accent p-8 sm:p-10">
             <SectionHeader
               title="Parlons de votre projet"
-              description={`${brand.trademark} conçoit des systèmes sur mesure — de l'analyse du besoin jusqu'au déploiement en production.`}
+              description={`${brand.trademark} conçoit des systèmes sur mesure, de l'analyse du besoin jusqu'au déploiement en production.`}
             />
 
             <ContactForm />
@@ -37,7 +37,7 @@ export function ContactContent() {
                   >
                     {brand.phone}
                   </a>
-                  <span className="text-muted"> — disponible en </span>
+                  <span className="text-muted">, disponible en </span>
                   <a
                     href={brand.whatsapp}
                     target="_blank"

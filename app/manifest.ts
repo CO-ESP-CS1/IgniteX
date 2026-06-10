@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "IgniteX™ — Au delà des frontières",
+    name: "IgniteX™, au delà des frontières",
     short_name: "IgniteX",
     description:
-      "IgniteX™ conçoit et déploie des systèmes d'information sur mesure — plateformes communautaires, e-commerce, gestion scolaire et plus.",
+      "IgniteX™ conçoit et déploie des systèmes d'information sur mesure : plateformes communautaires, e-commerce, gestion scolaire et plus.",
     start_url: "/",
     display: "standalone",
     orientation: "portrait-primary",

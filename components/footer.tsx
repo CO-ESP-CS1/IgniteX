@@ -57,7 +57,7 @@ export function Footer() {
                 >
                   {brand.phone}
                 </a>
-                <span className="text-zinc-600"> — appel ou </span>
+                <span className="text-zinc-600">, disponible en appel ou sur </span>
                 <a
                   href={brand.whatsapp}
                   className="text-ignitex-300 hover:underline"

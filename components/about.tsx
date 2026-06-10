@@ -24,7 +24,7 @@ export function About() {
               <div className="relative h-56 w-full border-b border-border bg-surface sm:h-72">
                 <Image
                   src={partner.image}
-                  alt={`${partner.name} — photo`}
+                  alt={`Photo de ${partner.name}`}
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 100vw, 33vw"

@@ -4,7 +4,7 @@ import { PageBanner } from "@/components/page-banner";
 import { brand } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `Politique de cookies — ${brand.trademark}`,
+  title: `Politique de cookies : ${brand.trademark}`,
   description: `Informations sur l'utilisation des cookies sur le site ${brand.trademark}.`,
 };
 

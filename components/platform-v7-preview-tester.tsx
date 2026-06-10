@@ -35,7 +35,7 @@ export function PlatformV7PreviewTester() {
           </label>
 
           <h2 id="v7-preview-title" className="text-lg font-semibold text-foreground">
-            Accès preview — Platform v7
+            Accès preview : Platform v7
           </h2>
 
           <p className="mt-3 text-sm leading-relaxed text-muted">
@@ -59,7 +59,7 @@ export function PlatformV7PreviewTester() {
             <input
               type="hidden"
               name="subject"
-              value="IgniteX™ Platform v7 — Demande d'accès preview"
+              value="IgniteX™ Platform v7 : Demande d'accès preview"
             />
 
             <div>
@@ -79,7 +79,7 @@ export function PlatformV7PreviewTester() {
 
             <p className="text-xs text-muted">
               En validant, votre client de messagerie s&apos;ouvrira pour envoyer
-              votre demande à {PREVIEW_EMAIL} — le token ne transite pas par ce
+              votre demande à {PREVIEW_EMAIL} ; le token ne transite pas par ce
               site.
             </p>
 

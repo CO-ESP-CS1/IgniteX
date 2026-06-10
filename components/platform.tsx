@@ -58,7 +58,7 @@ export function Platform() {
           <div className="card overflow-hidden bg-surface shadow-[0_20px_50px_rgba(0,174,239,0.1)]">
             <Image
               src="/images/platform.png"
-              alt="IgniteX™ Platform v6.9 — le moteur interne qui propulse l'excellence de vos systèmes"
+              alt="IgniteX™ Platform v6.9, le moteur interne qui propulse l'excellence de vos systèmes"
               width={1200}
               height={900}
               className="h-auto w-full"

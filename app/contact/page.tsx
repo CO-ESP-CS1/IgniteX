@@ -4,7 +4,7 @@ import { PageBanner } from "@/components/page-banner";
 import { brand } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `Contact — ${brand.trademark}`,
+  title: `Contact : ${brand.trademark}`,
   description: `Contactez ${brand.trademark} pour démarrer votre projet.`,
 };
 
@@ -14,7 +14,7 @@ export default function ContactPage() {
       <PageBanner
         label="Contact"
         title="Travaillons ensemble"
-        description="Parlons de votre projet — nous concevons des systèmes sur mesure de bout en bout."
+        description="Parlons de votre projet : nous concevons des systèmes sur mesure de bout en bout."
       />
       <ContactContent />
     </>

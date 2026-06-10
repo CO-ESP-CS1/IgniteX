@@ -39,7 +39,7 @@ export const partners: Partner[] = [
       "PEJOSOFT pose les fondations techniques des projets IgniteX™ : serveurs solides, logique métier et applications Android prêtes pour des milliers d'utilisateurs.",
     image: "/images/groupe/pejosoft.png",
     about:
-      "PEJOSOFT CORPORATION est le pilier backend et Android du groupe IgniteX™. L'entité conçoit l'architecture serveur, la logique métier et les applications Android qui font tourner nos systèmes les plus exigeants — de CCB Connect à Soleil d'Afrik. Chaque projet IgniteX™ qui nécessite performance, sécurité et montée en charge passe par l'expertise PEJOSOFT : bases de données, APIs, authentification, notifications et déploiement en production.",
+      "PEJOSOFT CORPORATION est le pilier backend et Android du groupe IgniteX™. L'entité conçoit l'architecture serveur, la logique métier et les applications Android qui font tourner nos systèmes les plus exigeants, de CCB Connect à Soleil d'Afrik. Chaque projet IgniteX™ qui nécessite performance, sécurité et montée en charge passe par l'expertise PEJOSOFT : bases de données, APIs, authentification, notifications et déploiement en production.",
     mission:
       "Au sein d'IgniteX™, PEJOSOFT garantit que chaque système repose sur une base technique fiable, sécurisée et capable de grandir avec ses utilisateurs.",
     contributions: [
@@ -51,10 +51,10 @@ export const partners: Partner[] = [
     ],
     visionary: {
       name: "POHO Eliezer Omar",
-      title: "Fondateur — PEJOSOFT CORPORATION",
+      title: "Fondateur de PEJOSOFT CORPORATION",
       image: "/images/groupe/pejosoft-poho.png",
       thoughts:
-        "« Chez PEJOSOFT, nous croyons qu'un système IgniteX™ ne vaut que par la solidité de ce qu'on ne voit pas : le backend. Notre rôle est de construire des fondations sur lesquelles des milliers de personnes peuvent s'appuyer chaque jour, sans interruption. Rejoindre IgniteX™, c'était mettre cette exigence au service d'une vision plus grande — des projets qui dépassent les frontières et qui durent. »",
+        "« Chez PEJOSOFT, nous croyons qu'un système IgniteX™ ne vaut que par la solidité de ce qu'on ne voit pas : le backend. Notre rôle est de construire des fondations sur lesquelles des milliers de personnes peuvent s'appuyer chaque jour, sans interruption. Rejoindre IgniteX™, c'était mettre cette exigence au service d'une vision plus grande : des projets qui dépassent les frontières et qui durent. »",
     },
   },
   {
@@ -67,9 +67,9 @@ export const partners: Partner[] = [
       "JM TECHNOLOGIES donne forme au web IgniteX™ : sites vitrines, portails clients, tableaux de bord et interfaces claires pour chaque projet livré.",
     image: "/images/groupe/jm-technologies.png",
     about:
-      "JM TECHNOLOGIES porte la dimension web du groupe IgniteX™. L'entité développe les sites, portails et interfaces en ligne qui complètent nos applications mobiles et nos systèmes métiers — de la vitrine IgniteX™ aux espaces d'administration de nos clients. JM TECHNOLOGIES veille à ce que chaque projet IgniteX™ soit accessible, responsive et agréable à utiliser, que ce soit sur ordinateur, tablette ou téléphone.",
+      "JM TECHNOLOGIES porte la dimension web du groupe IgniteX™. L'entité développe les sites, portails et interfaces en ligne qui complètent nos applications mobiles et nos systèmes métiers, de la vitrine IgniteX™ aux espaces d'administration de nos clients. JM TECHNOLOGIES veille à ce que chaque projet IgniteX™ soit accessible, responsive et agréable à utiliser, que ce soit sur ordinateur, tablette ou téléphone.",
     mission:
-      "JM TECHNOLOGIES rend visible et utilisable la puissance des systèmes IgniteX™ — pour les clients finaux comme pour les équipes qui les administrent.",
+      "JM TECHNOLOGIES rend visible et utilisable la puissance des systèmes IgniteX™, pour les clients finaux comme pour les équipes qui les administrent.",
     contributions: [
       "Sites vitrines et portails web IgniteX™",
       "Interfaces d'administration et tableaux de bord",
@@ -79,10 +79,10 @@ export const partners: Partner[] = [
     ],
     visionary: {
       name: "Moussounda Jacques",
-      title: "Fondateur — JM TECHNOLOGIES",
+      title: "Fondateur de JM TECHNOLOGIES",
       image: "/images/groupe/jm-technologies-jacques.png",
       thoughts:
-        "« Le web, c'est la première impression qu'on donne au monde. Avec IgniteX™, nous voulons que chaque interface reflète le sérieux de nos systèmes : claire, rapide, professionnelle. JM TECHNOLOGIES existe pour que la technologie la plus avancée reste simple à comprendre — pour un client à Paris comme pour une communauté en Afrique. »",
+        "« Le web, c'est la première impression qu'on donne au monde. Avec IgniteX™, nous voulons que chaque interface reflète le sérieux de nos systèmes : claire, rapide, professionnelle. JM TECHNOLOGIES existe pour que la technologie la plus avancée reste simple à comprendre, pour un client à Paris comme pour une communauté en Afrique. »",
     },
   },
   {
@@ -95,7 +95,7 @@ export const partners: Partner[] = [
       "BKT Labs apporte l'excellence iOS à l'écosystème IgniteX™ : applications fluides, intégrations Apple et expériences mobiles haut de gamme.",
     image: "/images/groupe/bkt-labs.png",
     about:
-      "BKT Labs est la branche iOS et intégrations avancées du groupe IgniteX™. L'entité développe les applications iPhone et iPad qui complètent l'offre Android de PEJOSOFT, en garantissant la même qualité d'expérience sur l'écosystème Apple. BKT Labs intervient aussi sur les intégrations techniques exigeantes — paiements, notifications, services cloud — pour que chaque projet IgniteX™ fonctionne parfaitement sur tous les appareils.",
+      "BKT Labs est la branche iOS et intégrations avancées du groupe IgniteX™. L'entité développe les applications iPhone et iPad qui complètent l'offre Android de PEJOSOFT, en garantissant la même qualité d'expérience sur l'écosystème Apple. BKT Labs intervient aussi sur les intégrations techniques exigeantes (paiements, notifications, services cloud) pour que chaque projet IgniteX™ fonctionne parfaitement sur tous les appareils.",
     mission:
       "BKT Labs assure que les projets IgniteX™ offrent une expérience iOS au même niveau d'exigence que le reste de l'écosystème du groupe.",
     contributions: [
@@ -107,10 +107,10 @@ export const partners: Partner[] = [
     ],
     visionary: {
       name: "Bakouetila Vivaldi",
-      title: "Fondateur — BKT Labs",
+      title: "Fondateur de BKT Labs",
       image: "/images/groupe/bkt-labs-vivaldi.png",
       thoughts:
-        "« L'iPhone est entre les mains de millions de personnes. Avec BKT Labs, nous voulons que les projets IgniteX™ soient à la hauteur de cette attente : fluides, élégants, fiables. Rejoindre le groupe IgniteX™, c'est partager une ambition — construire des outils qui respectent l'utilisateur, où qu'il se trouve et quel que soit son téléphone. »",
+        "« L'iPhone est entre les mains de millions de personnes. Avec BKT Labs, nous voulons que les projets IgniteX™ soient à la hauteur de cette attente : fluides, élégants, fiables. Rejoindre le groupe IgniteX™, c'est partager une ambition : construire des outils qui respectent l'utilisateur, où qu'il se trouve et quel que soit son téléphone. »",
     },
   },
 ];
@@ -135,7 +135,7 @@ export const pillars = [
   {
     title: "Sécurité & gouvernance",
     description:
-      "JWT, RBAC, modération, validation manuelle, chiffrement et traçabilité — la confiance au cœur de chaque système livré.",
+      "JWT, RBAC, modération, validation manuelle, chiffrement et traçabilité : la confiance au cœur de chaque système livré.",
   },
   {
     title: "Terrain africain",
@@ -145,7 +145,7 @@ export const pillars = [
   {
     title: "Livraison vérifiable",
     description:
-      "Jalons contractuels, documentation complète, tests automatisés et déploiement production — zéro prototype jetable.",
+      "Jalons contractuels, documentation complète, tests automatisés et déploiement en production, sans prototype jetable.",
   },
 ];
 
@@ -231,12 +231,12 @@ export const projects: Project[] = [
   },
   {
     id: "gms-school",
-    name: "GMS School — SGSI",
+    name: "GMS School (SGSI)",
     image: "/images/projects/gms-school.png",
     client: "GMS SCHOOL",
     tagline: "Gérer une école sur plusieurs sites, du préscolaire au collège",
     description:
-      "GMS School est un système de gestion scolaire pour un établissement privé présent sur plusieurs sites. Il couvre les notes, les absences, la vie scolaire, les paiements des parents et le suivi de direction — y compris hors connexion Internet sur chaque site. Le système est en production et fonctionne avec IgniteX™ Platform v6.9.",
+      "GMS School est un système de gestion scolaire pour un établissement privé présent sur plusieurs sites. Il couvre les notes, les absences, la vie scolaire, les paiements des parents et le suivi de direction, y compris hors connexion Internet sur chaque site. Le système est en production et fonctionne avec IgniteX™ Platform v6.9.",
     highlights: [
       "Fonctionne sur chaque site, même sans Internet",
       "Parents informés des notes, absences et paiements sur leur téléphone",
@@ -263,7 +263,7 @@ export const projects: Project[] = [
     id: "boutique-paris",
     name: "La Boutique Parisienne",
     image: "/images/projects/boutique-paris.png",
-    client: "Commerce en ligne — Paris, France",
+    client: "Commerce en ligne, Paris (France)",
     tagline: "Vendre des articles en ligne, avec paiement par virement bancaire",
     description:
       "La Boutique Parisienne est une plateforme e-commerce déployée en production pour une entreprise basée à Paris. Les clients parcourent le catalogue, passent commande en quelques clics et règlent par virement bancaire en toute simplicité. L'équipe côté siège suit les ventes, prépare les expéditions et gère le stock depuis un espace d'administration clair et fiable. Le système s'appuie sur IgniteX™ Platform v6.9 pour assurer sécurité, fluidité et évolutivité au quotidien.",
@@ -353,13 +353,13 @@ export const projects: Project[] = [
     id: "sos-job",
     name: "SOS JOB",
     image: "/images/projects/sos-job.png",
-    client: "SOS JOB — Offre emploi Congo Brazzaville",
+    client: "SOS JOB, offre emploi Congo Brazzaville",
     tagline:
       "Le premier réseau professionnel numérique du Congo, de WhatsApp à une plateforme complète",
     description:
       "SOS JOB est aujourd'hui la première plateforme de publication d'emploi au Congo, avec une communauté active de plus de 50 000 utilisateurs cumulés sur WhatsApp, LinkedIn et Facebook. Nous avons conçu et déployé la plateforme web et mobile qui structure cette audience : profils candidats et recruteurs (formels et informels), publication d'offres avec modération IA, génération automatique d'images brandées, diffusion multicanale via WhatsApp et réseaux sociaux, moteur de recherche et matching assisté par IA, messagerie interne et espace communautaire. Un pilote est en cours et s'appuie sur IgniteX™ Platform v6.9.",
     highlights: [
-      "Plus de 50 000 utilisateurs — transition d'une diffusion informelle vers un espace sécurisé unique",
+      "Plus de 50 000 utilisateurs : transition d'une diffusion informelle vers un espace sécurisé unique",
       "Profils évolutifs pour candidats et recruteurs, du secteur formel comme informel",
       "Publication d'offres intelligente avec modération IA et images générées automatiquement",
       "Diffusion multicanale (WhatsApp, réseaux sociaux) et messagerie connectée aux canaux populaires",
@@ -389,7 +389,7 @@ export const projects: Project[] = [
     client: "Loatékombo Association Culturelle",
     tagline: "Culture, santé publique et éducation au service des communautés",
     description:
-      "Loatékombo Association Culturelle est une organisation créée en 2018 qui utilise l'art et la culture pour transformer la vie des communautés — éducation, santé, accès à l'eau et cohésion sociale. Nous avons conçu et déployé leur plateforme numérique sur loatekombo.org : vitrine des activités, concours nationaux de poésie, caravanes de sensibilisation (VIH/SIDA, paludisme, antiviolence) et mise en valeur de leur engagement culturel à Brazzaville et au Congo. Le site est en production et reflète la devise de l'association : S'inspirer, innover, développer.",
+      "Loatékombo Association Culturelle est une organisation créée en 2018 qui utilise l'art et la culture pour transformer la vie des communautés : éducation, santé, accès à l'eau et cohésion sociale. Nous avons conçu et déployé leur plateforme numérique sur loatekombo.org : vitrine des activités, concours nationaux de poésie, caravanes de sensibilisation (VIH/SIDA, paludisme, antiviolence) et mise en valeur de leur engagement culturel à Brazzaville et au Congo. Le site est en production et reflète la devise de l'association : S'inspirer, innover, développer.",
     highlights: [
       "Site vitrine des actions culturelles et communautaires de l'ONG",
       "Présentation des concours nationaux de poésie et cérémonies des lumières",
@@ -419,7 +419,7 @@ export const projects: Project[] = [
     client: "IgniteX™",
     tagline: "La prochaine évolution de notre moteur, actuellement en développement",
     description:
-      "Après le succès de la version 6.9 — d'abord éprouvée sur CCB Connect puis déployée sur d'autres systèmes — les équipes IgniteX™ travaillent depuis un mois sur la version 7. L'objectif : aller plus loin en rendant le moteur plus accessible aux développeurs, intégrateurs et organisations qui souhaitent s'appuyer sur IgniteX™ pour construire leurs propres solutions.",
+      "Après le succès de la version 6.9, d'abord éprouvée sur CCB Connect puis déployée sur d'autres systèmes, les équipes IgniteX™ travaillent depuis un mois sur la version 7. L'objectif : aller plus loin en rendant le moteur plus accessible aux développeurs, intégrateurs et organisations qui souhaitent s'appuyer sur IgniteX™ pour construire leurs propres solutions.",
     highlights: [
       "Suite logique de la v6.9, validée sur le terrain avec CCB Connect",
       "Documentation et ressources pensées pour les équipes techniques",
@@ -450,7 +450,7 @@ export const projects: Project[] = [
     tagline:
       "Rendre les services d'entreprise accessibles par simple appel, sans Internet",
     description:
-      "MOPESI® USSD est une plateforme mutualisée qui permet aux entreprises d'offrir leurs services sur mobile via un code USSD partagé — menus personnalisés, connexion à leurs propres systèmes et tableau de bord pour suivre l'activité. Sans smartphone ni connexion Internet, chaque utilisateur compose le code, navigue dans un menu dédié à l'entreprise et obtient une réponse en temps réel. La solution réduit les délais et les coûts liés à l'obtention d'un code USSD individuel auprès des opérateurs, tout en laissant chaque entreprise maître de ses données.",
+      "MOPESI® USSD est une plateforme mutualisée qui permet aux entreprises d'offrir leurs services sur mobile via un code USSD partagé : menus personnalisés, connexion à leurs propres systèmes et tableau de bord pour suivre l'activité. Sans smartphone ni connexion Internet, chaque utilisateur compose le code, navigue dans un menu dédié à l'entreprise et obtient une réponse en temps réel. La solution réduit les délais et les coûts liés à l'obtention d'un code USSD individuel auprès des opérateurs, tout en laissant chaque entreprise maître de ses données.",
     highlights: [
       "Plusieurs entreprises hébergées sur un même code USSD mutualisé",
       "Menus et parcours personnalisés pour chaque client (abonnements, paiements, suivi…)",
@@ -481,7 +481,7 @@ export const projects: Project[] = [
     tagline:
       "Relier culture, écriture et innovation numérique pour la jeunesse congolaise",
     description:
-      "L'Harmathon Congo est une initiative portée par les Éditions L'Harmattan Congo à Brazzaville — maison d'édition implantée depuis 2009 et déjà active dans la promotion du livre et de la jeunesse à travers le Grand Prix littéraire de la jeunesse et le Grand Prix des auteurs francophones. Nous développons pour eux un système numérique dédié : inscriptions des participants, dépôt et suivi des candidatures, organisation des éditions et des concours, espace jury et tableau de bord pour les équipes. L'objectif est de donner à cette rencontre entre culture et numérique les mêmes outils de rigueur que nos autres systèmes métiers, en s'appuyant sur IgniteX™ Platform v6.9.",
+      "L'Harmathon Congo est une initiative portée par les Éditions L'Harmattan Congo à Brazzaville, maison d'édition implantée depuis 2009 et déjà active dans la promotion du livre et de la jeunesse à travers le Grand Prix littéraire de la jeunesse et le Grand Prix des auteurs francophones. Nous développons pour eux un système numérique dédié : inscriptions des participants, dépôt et suivi des candidatures, organisation des éditions et des concours, espace jury et tableau de bord pour les équipes. L'objectif est de donner à cette rencontre entre culture et numérique les mêmes outils de rigueur que nos autres systèmes métiers, en s'appuyant sur IgniteX™ Platform v6.9.",
     highlights: [
       "Inscriptions en ligne pour jeunes auteurs, créateurs et équipes participantes",
       "Dépôt sécurisé des textes, projets et candidatures aux concours",
@@ -543,7 +543,7 @@ export const platform = {
   description:
     "IgniteX™ Platform est un moteur interne propriétaire développé par le groupe IgniteX™, conçu pour accélérer et optimiser la conception des systèmes d'information. Loin d'être un simple boilerplate, c'est un véritable moteur algorithmique qui embarque des mécanismes avancés d'optimisation.",
   history:
-    "La version 6.9 a commencé par équiper CCB Connect, notre premier grand système déployé en production, avant de s'étendre progressivement à d'autres projets — Soleil d'Afrik, GMS School, Restaurant POS et bien d'autres. Chaque nouveau système profite des acquis et de la maturité acquise sur le terrain.",
+    "La version 6.9 a commencé par équiper CCB Connect, notre premier grand système déployé en production, avant de s'étendre progressivement à d'autres projets : Soleil d'Afrik, GMS School, Restaurant POS et bien d'autres. Chaque nouveau système profite des acquis et de la maturité acquise sur le terrain.",
   features: [
     "Gestion intelligente des flux de données",
     "Traitement optimisé des requêtes",

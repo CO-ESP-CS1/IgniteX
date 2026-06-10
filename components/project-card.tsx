@@ -20,7 +20,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="relative h-44 overflow-hidden">
         <Image
           src={project.image ?? "/images/placeholder.jpg"}
-          alt={`${project.name} — aperçu`}
+          alt={`Aperçu du projet ${project.name}`}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 33vw"
@@ -45,7 +45,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <p className="mt-1 text-sm text-muted">{project.tagline}</p>
         <p className="mt-2 line-clamp-2 text-xs font-medium text-ignitex-600 dark:text-ignitex-400">
           {project.id === "ignitex-platform-v7"
-            ? "IgniteX™ Platform v7 — en développement"
+            ? "IgniteX™ Platform v7, en développement"
             : "IgniteX™ Platform v6.9"}
         </p>
         <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-muted">

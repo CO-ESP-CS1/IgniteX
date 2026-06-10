@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!partner) return { title: brand.trademark };
 
   return {
-    title: `${partner.name} — ${brand.trademark}`,
+    title: `${partner.name} : ${brand.trademark}`,
     description: partner.teaser,
   };
 }

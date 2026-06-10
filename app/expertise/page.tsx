@@ -4,7 +4,7 @@ import { PageBanner } from "@/components/page-banner";
 import { brand } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `Expertise — ${brand.trademark}`,
+  title: `Expertise : ${brand.trademark}`,
   description:
     "Full-stack maison, terrain africain, sécurité et livraison vérifiable.",
 };

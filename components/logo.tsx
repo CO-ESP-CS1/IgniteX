@@ -15,14 +15,14 @@ export function Logo({ variant = "header", className = "" }: LogoProps) {
       <Link
         href="/"
         className={`group inline-flex min-w-0 items-center ${className}`}
-        aria-label={`${brand.trademark} — Accueil`}
+        aria-label={`${brand.trademark}, accueil`}
       >
         <Image
           src="/images/ignitex-logo.png"
           alt={brand.trademark}
           width={1024}
           height={682}
-          className="h-9 w-auto max-w-[11rem] object-contain sm:h-10 sm:max-w-[12.5rem]"
+          className="h-12 w-auto max-w-[14rem] object-contain sm:h-14 sm:max-w-[17rem]"
           priority
         />
       </Link>
@@ -33,7 +33,7 @@ export function Logo({ variant = "header", className = "" }: LogoProps) {
     <Link
       href="/"
       className={`group inline-flex min-w-0 items-center gap-2.5 ${className}`}
-      aria-label={`${brand.trademark} — Accueil`}
+      aria-label={`${brand.trademark}, accueil`}
     >
       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-ignitex-500 to-ignitex-600 shadow-md shadow-ignitex-500/25">
         <svg

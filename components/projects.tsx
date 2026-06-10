@@ -16,7 +16,7 @@ export function Projects() {
         <div className="card card-accent mx-auto mt-16 max-w-2xl p-8 text-center sm:p-10">
           <SectionHeader
             title="Et bien d'autres projets"
-            description={`Le portfolio ci-dessus n'est qu'un aperçu. ${brand.trademark} a réalisé plus de 29 projets — applications mobiles, systèmes métiers, portails web et outils sur mesure — tous portés par la même exigence de qualité et, pour la grande majorité, par IgniteX™ Platform v6.9.`}
+            description={`Le portfolio ci-dessus n'est qu'un aperçu. ${brand.trademark} a réalisé plus de 29 projets : applications mobiles, systèmes métiers, portails web et outils sur mesure, tous portés par la même exigence de qualité et, pour la grande majorité, par IgniteX™ Platform v6.9.`}
             align="center"
             className="mx-auto"
           />

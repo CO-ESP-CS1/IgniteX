@@ -15,9 +15,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: `${brand.trademark} — ${brand.slogan}`,
+  title: `${brand.trademark} : ${brand.slogan}`,
   description:
-    "IgniteX™ conçoit et déploie des systèmes d'information sur mesure — plateformes communautaires, e-commerce, gestion scolaire et plus. Propulsés par IgniteX™ Platform.",
+    "IgniteX™ conçoit et déploie des systèmes d'information sur mesure : plateformes communautaires, e-commerce, gestion scolaire et plus. Propulsés par IgniteX™ Platform.",
   keywords: [
     "IgniteX",
     "développement",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   creator: brand.trademark,
   metadataBase: new URL(brand.url),
   openGraph: {
-    title: `${brand.trademark} — ${brand.slogan}`,
+    title: `${brand.trademark} : ${brand.slogan}`,
     description: brand.tagline,
     url: brand.url,
     siteName: brand.trademark,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${brand.trademark} — ${brand.slogan}`,
+    title: `${brand.trademark} : ${brand.slogan}`,
     description: brand.tagline,
     images: ["/images/logo.png"],
   },

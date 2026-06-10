@@ -4,7 +4,7 @@ import { Platform } from "@/components/platform";
 import { brand, platform } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `${platform.title} — ${brand.trademark}`,
+  title: `${platform.title} : ${brand.trademark}`,
   description: platform.description,
 };
 

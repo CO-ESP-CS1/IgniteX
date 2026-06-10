@@ -20,7 +20,7 @@ const teasers = [
     href: "/realisations",
     title: "Réalisations",
     description:
-      "Communauté, librairie, éducation, zoo — plus de 29 projets livrés.",
+      "Communauté, librairie, éducation, zoo : plus de 29 projets livrés.",
     accent: "03",
   },
   {
@@ -39,7 +39,7 @@ export function HomeTeasers() {
         <SectionHeader
           label="Navigation"
           title="Explorez IgniteX™"
-          description="Un site complet — chaque section a sa propre page."
+          description="Un site complet : chaque section a sa propre page."
           align="center"
           className="mb-12"
         />

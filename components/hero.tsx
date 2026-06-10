@@ -22,7 +22,7 @@ export function Hero() {
             <div className="eyebrow">
               <span className="eyebrow-dot" aria-hidden="true" />
               <span className="section-label text-ignitex-700 dark:text-ignitex-300">
-                {brand.trademark} — {brand.slogan}
+                {brand.trademark}, {brand.slogan}
               </span>
             </div>
 
@@ -36,8 +36,8 @@ export function Hero() {
 
             <p className="prose-body mt-5 max-w-lg">
               Nous concevons, développons et déployons des plateformes
-              technologiques sur mesure — communautaires, e-commerce, gestion
-              scolaire, caisse intelligente — propulsées par{" "}
+              technologiques sur mesure : communautaires, e-commerce, gestion
+              scolaire, caisse intelligente, propulsées par{" "}
               <strong className="font-semibold text-foreground">
                 IgniteX™ Platform
               </strong>
@@ -62,7 +62,7 @@ export function Hero() {
             <div className="relative overflow-hidden rounded-xl border border-border bg-surface-elevated shadow-[0_20px_50px_rgba(0,174,239,0.12)]">
               <Image
                 src="/images/hero-accueil.jpg"
-                alt="Développement de systèmes d'information — IgniteX™"
+                alt="Développement de systèmes d'information par IgniteX™"
                 width={800}
                 height={520}
                 className="h-56 w-full object-cover object-center sm:h-72 lg:h-80"
