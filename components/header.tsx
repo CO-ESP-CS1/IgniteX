@@ -32,11 +32,11 @@ export function Header() {
             <ThemeSwitcherNative />
           </div>
 
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-0 lg:hidden">
             <ThemeSwitcherNative variant="mobile-toggle" />
             <label
               htmlFor={MENU_ID}
-              className="flex h-14 w-14 shrink-0 cursor-pointer items-center justify-center text-foreground transition-opacity hover:opacity-70"
+              className="flex h-14 w-11 shrink-0 cursor-pointer items-center justify-center text-foreground transition-opacity hover:opacity-70 -ml-1"
               style={{ WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
               aria-label="Ouvrir le menu"
             >

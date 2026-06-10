@@ -4,7 +4,7 @@ type ThemeSwitcherNativeProps = {
 };
 
 const mobileToggleClass =
-  "flex h-14 w-14 shrink-0 cursor-pointer items-center justify-center text-foreground transition-opacity hover:opacity-70";
+  "flex h-14 w-11 shrink-0 cursor-pointer items-center justify-center text-foreground transition-opacity hover:opacity-70";
 
 function SunIcon({ className }: { className?: string }) {
   return (
