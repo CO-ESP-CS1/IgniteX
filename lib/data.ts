@@ -5,7 +5,7 @@ export const brand = {
   tagline: "Réveille la lumière qui est en toi",
   pitch:
     "Studio de développement logiciel : applications mobiles, sites web, outils d'automatisation, plateformes métiers, ERP et systèmes sur mesure, livrés en production.",
-  pitchShort: "Studio de développement logiciel",
+  pitchShort: "Studio de développement logiciel & systèmes bas niveau",
   url: "https://www.ignitex.app",
   email: "ignitex.info@gmail.com",
   phone: "05 694 99 45",

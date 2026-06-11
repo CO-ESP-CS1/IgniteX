@@ -28,7 +28,7 @@ export function Hero() {
               <div className="eyebrow">
                 <span className="eyebrow-dot motion-safe:animate-pulse-soft" aria-hidden="true" />
                 <span className="section-label text-ignitex-700 dark:text-ignitex-300">
-                  {brand.pitchShort} · Congo &amp; international
+                  {brand.pitchShort}
                 </span>
               </div>
             </Reveal>
