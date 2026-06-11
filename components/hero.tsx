@@ -1,13 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
-import { brand } from "@/lib/data";
-
-const heroStats = [
-  { n: "29+", l: "Projets réalisés" },
-  { n: "489+", l: "Modules métier livrés" },
-  { n: "920+", l: "Écrans & interfaces" },
-  { n: "6.9", l: "IgniteX™ Platform" },
-];
+import { StatsCounter } from "@/components/stats-counter";
+import { brand, stats } from "@/lib/data";
 
 export function Hero() {
   return (
@@ -36,9 +30,7 @@ export function Hero() {
             <Reveal delay={80}>
               <h1 className="display-title mt-6">
                 Des applications et plateformes{" "}
-                <span className="bg-gradient-to-r from-ignitex-600 to-ignitex-400 bg-clip-text text-transparent">
-                  sur mesure
-                </span>
+                <span className="text-gradient-primary">sur mesure</span>
                 , livrées en production
               </h1>
             </Reveal>
@@ -57,7 +49,7 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={220}>
-              <p className="mt-4 rounded-lg border border-border bg-surface-elevated/80 px-4 py-3 text-sm leading-relaxed text-foreground">
+              <p className="mt-4 rounded-lg border border-border bg-surface-elevated/80 px-4 py-3 text-sm leading-relaxed text-foreground backdrop-blur-sm">
                 <span className="font-semibold">En bref :</span> nous
                 développons des logiciels utiles au quotidien, comme{" "}
                 <span className="text-ignitex-600 dark:text-ignitex-400">
@@ -87,9 +79,7 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={340}>
-              <p className="mt-4 text-xs text-muted italic">
-                {brand.tagline}
-              </p>
+              <p className="mt-4 text-xs text-muted italic">{brand.tagline}</p>
             </Reveal>
           </div>
 
@@ -115,17 +105,8 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {heroStats.map((item, index) => (
-            <Reveal key={item.l} delay={index * 70}>
-              <div className="card card-accent rounded-xl px-5 py-5 sm:px-6">
-                <p className="text-2xl font-semibold tracking-tight text-ignitex-600 dark:text-ignitex-400 sm:text-3xl">
-                  {item.n}
-                </p>
-                <p className="mt-1 text-sm text-muted">{item.l}</p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-12">
+          <StatsCounter items={stats} variant="grid" />
         </div>
       </div>
     </section>

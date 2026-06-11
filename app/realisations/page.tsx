@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { PageBanner } from "@/components/page-banner";
 import { Projects } from "@/components/projects";
-import { brand } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `Réalisations : ${brand.trademark}`,
+export const metadata: Metadata = pageMetadata({
+  title: "Réalisations",
   description:
-    "Plus de 29 projets réalisés : SOS JOB, L'Harmathon Congo, MOPESI® USSD, CCB Connect, Soleil d'Afrik, Loatékombo ONG, boutique Paris, école, zoo de Brazzaville, IgniteX™ Platform v7 et plus.",
-};
+    "Plus de 29 projets réalisés : SOS JOB, CCB Connect, Soleil d'Afrik, GMS School, Loatékombo ONG, boutique Paris, zoo de Brazzaville, IgniteX™ Platform v7 et plus.",
+  path: "/realisations",
+});
 
 export default function RealisationsPage() {
   return (

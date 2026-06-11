@@ -129,11 +129,209 @@ export function getPartnerById(id: string): Partner | undefined {
   return partners.find((p) => p.id === id);
 }
 
-export const stats = [
-  { value: "29", label: "Projets réalisés", suffix: "+" },
-  { value: "489", label: "Modules métier livrés", suffix: "+" },
-  { value: "920", label: "Écrans & interfaces", suffix: "+" },
-  { value: "6.9", label: "Version Plateforme", suffix: "" },
+export type StatItem = {
+  value: number;
+  label: string;
+  suffix?: string;
+  decimals?: number;
+};
+
+export const stats: StatItem[] = [
+  { value: 29, label: "Projets réalisés", suffix: "+" },
+  { value: 489, label: "Modules métier livrés", suffix: "+" },
+  { value: 920, label: "Écrans & interfaces", suffix: "+" },
+  { value: 6.9, label: "Version Plateforme", decimals: 1 },
+];
+
+export type TimelineEvent = {
+  id: string;
+  phase: string;
+  title: string;
+  date: string;
+  description: string;
+  highlights: string[];
+};
+
+export const timelineEvents: TimelineEvent[] = [
+  {
+    id: "foundations",
+    phase: "01",
+    title: "Premiers systèmes en production",
+    date: "2018 — 2022",
+    description:
+      "Les entités du groupe livrent leurs premiers grands systèmes : applications communautaires, outils éducatifs et plateformes métiers déployés sur le terrain africain et international.",
+    highlights: [
+      "Loatékombo ONG — outils numériques depuis 2018",
+      "L'Harmattan Congo — présence terrain depuis 2009",
+      "Premiers backends et apps mobiles en production",
+    ],
+  },
+  {
+    id: "platform-v69",
+    phase: "02",
+    title: "Naissance d'IgniteX™ Platform v6.9",
+    date: "2023 — 2025",
+    description:
+      "Le moteur propriétaire IgniteX™ Platform v6.9 équipe CCB Connect puis s'étend à Soleil d'Afrik, GMS School, Restaurant POS et d'autres systèmes livrés en production.",
+    highlights: [
+      "CCB Connect — 10 000+ membres connectés",
+      "Soleil d'Afrik — librairie numérique multidevises",
+      "GMS School — gestion scolaire multi-sites",
+    ],
+  },
+  {
+    id: "platform-v7",
+    phase: "03",
+    title: "IgniteX™ Platform v7 & expansion",
+    date: "2026",
+    description:
+      "La nouvelle génération de la plateforme est en développement. Le groupe consolide 29+ projets livrés, 489+ modules métiers et un réseau de visionnaires répartis sur trois continents.",
+    highlights: [
+      "IgniteX™ Platform v7 en cours de développement",
+      "Programme Initiation Programmation — 15+ mentors",
+      "29+ projets en production ou en cours",
+    ],
+  },
+];
+
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export type FaqGroup = {
+  id: string;
+  title: string;
+  accent: "primary" | "secondary";
+  items: FaqItem[];
+};
+
+export const faqGroups: FaqGroup[] = [
+  {
+    id: "clients",
+    title: "Questions clients",
+    accent: "primary",
+    items: [
+      {
+        question: "Quels types de projets réalisez-vous ?",
+        answer:
+          "Applications mobiles (Android, iOS), sites et portails web, plateformes métiers, ERP, outils d'automatisation, systèmes de caisse, librairies numériques, solutions éducatives et outils communautaires — du premier brief jusqu'à la mise en production.",
+      },
+      {
+        question: "Travaillez-vous avec des clients en Afrique et en Europe ?",
+        answer:
+          "Oui. IgniteX™ livre des systèmes au Congo, en Afrique centrale et francophone, ainsi qu'en France et à l'international. Notre expertise couvre Mobile Money, connectivité intermittente et exigences européennes (paiement par virement, RGPD).",
+      },
+      {
+        question: "Combien de temps faut-il pour livrer un projet ?",
+        answer:
+          "Cela dépend de la complexité. Un MVP peut être livré en quelques semaines ; une plateforme métier complète prend généralement plusieurs mois, avec des jalons contractuels et une documentation à chaque étape.",
+      },
+      {
+        question: "Proposez-vous la maintenance après livraison ?",
+        answer:
+          "Oui. Chaque système livré inclut une phase de stabilisation. Nous proposons ensuite des contrats de maintenance, d'évolution et de supervision (DevOps / SRE) selon les besoins du client.",
+      },
+      {
+        question: "Comment obtenir un devis ?",
+        answer:
+          "Remplissez le formulaire sur notre page Contact ou écrivez-nous à ignitex.info@gmail.com. Nous analysons votre besoin et revenons vers vous avec une proposition adaptée.",
+      },
+    ],
+  },
+  {
+    id: "technique",
+    title: "Questions techniques",
+    accent: "secondary",
+    items: [
+      {
+        question: "Qu'est-ce qu'IgniteX™ Platform ?",
+        answer:
+          "C'est le moteur propriétaire du groupe : un socle algorithmique qui accélère le développement, optimise les flux de données et injecte performance, sécurité et scalabilité dans chaque système livré. La version actuelle en production est la v6.9 ; la v7 est en développement.",
+      },
+      {
+        question: "Quelles technologies utilisez-vous ?",
+        answer:
+          "NestJS, GraphQL, Next.js, React Native, Flutter, Kotlin, Java Spring Boot, Django, PostgreSQL et plus encore. Le choix de la stack dépend du projet et de ses contraintes terrain.",
+      },
+      {
+        question: "Les applications fonctionnent-elles hors ligne ?",
+        answer:
+          "Oui, lorsque le besoin l'exige. Plusieurs de nos systèmes (GMS School, CCB Connect) intègrent le mode hors ligne ou la synchronisation différée pour les zones à connectivité intermittente.",
+      },
+      {
+        question: "Qui compose l'équipe IgniteX™ ?",
+        answer:
+          "Trois entités complémentaires : PEJOSOFT (backend, Android, ML), JM TECHNOLOGIES (web, DevOps/SRE) et BKT Labs (iOS, LLMOps/MLOps). Chaque entité est portée par un fondateur visionnaire.",
+      },
+    ],
+  },
+];
+
+export type MentorProfile = {
+  id: string;
+  name: string;
+  role: string;
+  entity: string;
+  image: string;
+  bio: string;
+  tech: "flutter" | "firebase" | "fullstack";
+  links?: { label: string; href: string }[];
+};
+
+export const mentors: MentorProfile[] = partners.map((p) => ({
+  id: p.id,
+  name: p.visionary.name,
+  role: p.visionary.title,
+  entity: p.name,
+  image: p.visionary.image,
+  bio: p.visionary.thoughts.replace(/^«\s*|\s*»$/g, ""),
+  tech:
+    p.id === "pejosoft"
+      ? "fullstack"
+      : p.id === "jm-technologies"
+        ? "firebase"
+        : "flutter",
+}));
+
+export type TrustedPartnerLogo = {
+  id: string;
+  name: string;
+  image?: string;
+};
+
+/** Logos partenaires — fichiers normalisés 480×300 dans public/images/partenaires/ */
+export const trustedPartnerLogos: TrustedPartnerLogo[] = [
+  {
+    id: "report-ccb",
+    name: "C-REPORTERS · CCB",
+    image: "/images/partenaires/report-ccb.png",
+  },
+  {
+    id: "ccb-connect",
+    name: "CCB Connect",
+    image: "/images/partenaires/ccb-connect.png",
+  },
+  {
+    id: "ccb-communaute",
+    name: "Communauté des Chrétiens Bénis",
+    image: "/images/partenaires/ccb-communaute.png",
+  },
+  {
+    id: "soleil-d-afrik",
+    name: "Soleil d'Afrik Éditions",
+    image: "/images/partenaires/soleil-d-afrik.png",
+  },
+  {
+    id: "harmathon-congo",
+    name: "L'Harmattan Congo",
+    image: "/images/partenaires/harmathon-congo.png",
+  },
+  {
+    id: "loatekombo",
+    name: "Loatékombo ONG",
+    image: "/images/partenaires/loatekombo.png",
+  },
 ];
 
 export const pillars = [
@@ -545,6 +743,7 @@ export const projects: Project[] = [
     featured: true,
   },
 ];
+
 
 export const platform = {
   version: "6.9",

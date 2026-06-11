@@ -1,6 +1,7 @@
 import { ContactForm } from "@/components/contact-form";
+import { FaqSection } from "@/components/faq-section";
 import { SectionHeader } from "@/components/section-header";
-import { brand } from "@/lib/data";
+import { brand, faqGroups } from "@/lib/data";
 
 export function ContactContent() {
   return (
@@ -55,6 +56,15 @@ export function ContactContent() {
           <p className="mt-8 text-center text-xs text-muted">
             PEJOSOFT CORPORATION · JM TECHNOLOGIES · BKT Labs
           </p>
+        </div>
+
+        <div className="mx-auto mt-16 max-w-4xl">
+          <FaqSection
+            groups={faqGroups}
+            title="Avant de nous écrire"
+            description="Réponses aux questions les plus fréquentes sur nos projets et notre façon de travailler."
+            className="!py-0"
+          />
         </div>
       </div>
     </section>

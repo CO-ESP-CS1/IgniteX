@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Expertise } from "@/components/expertise";
 import { PageBanner } from "@/components/page-banner";
-import { brand } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `Expertise : ${brand.trademark}`,
+export const metadata: Metadata = pageMetadata({
+  title: "Expertise",
   description:
-    "Full-stack maison, terrain africain, sécurité et livraison vérifiable.",
-};
+    "Full-stack maison, terrain africain, sécurité et livraison vérifiable — NestJS, React Native, Flutter, Next.js.",
+  path: "/expertise",
+});
 
 export default function ExpertisePage() {
   return (
