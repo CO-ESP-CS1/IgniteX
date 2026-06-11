@@ -3,6 +3,9 @@ export const brand = {
   trademark: "IgniteX™",
   slogan: "Au delà des frontières",
   tagline: "Réveille la lumière qui est en toi",
+  pitch:
+    "Studio de développement logiciel : applications mobiles, sites web, outils d'automatisation, plateformes métiers, ERP et systèmes sur mesure, livrés en production.",
+  pitchShort: "Studio de développement logiciel",
   url: "https://www.ignitex.app",
   email: "ignitex.info@gmail.com",
   phone: "05 694 99 45",
@@ -39,7 +42,7 @@ export const partners: Partner[] = [
       "PEJOSOFT pose les fondations techniques des projets IgniteX™ : serveurs solides, logique métier, applications Android et modèles ML intégrés aux services métiers.",
     image: "/images/groupe/pejosoft.png",
     about:
-      "PEJOSOFT CORPORATION est le pilier backend et Android du groupe IgniteX™. L'entité conçoit l'architecture serveur, la logique métier et les applications Android qui font tourner nos systèmes les plus exigeants, de CCB Connect à Soleil d'Afrik. Chaque projet IgniteX™ qui nécessite performance, sécurité et montée en charge passe par l'expertise PEJOSOFT : bases de données, APIs, authentification, notifications et déploiement en production. PEJOSOFT développe aussi une expertise en ML Engineering : préparation des données, entraînement et intégration de modèles dans les APIs et services métiers — recommandations, scoring, détection d'anomalies ou classification — pour des fonctionnalités intelligentes fiables en production.",
+      "PEJOSOFT CORPORATION est le pilier backend et Android du groupe IgniteX™. L'entité conçoit l'architecture serveur, la logique métier et les applications Android qui font tourner nos systèmes les plus exigeants, de CCB Connect à Soleil d'Afrik. Chaque projet IgniteX™ qui nécessite performance, sécurité et montée en charge passe par l'expertise PEJOSOFT : bases de données, APIs, authentification, notifications et déploiement en production. PEJOSOFT développe aussi une expertise en ML Engineering : préparation des données, entraînement et intégration de modèles dans les APIs et services métiers (recommandations, scoring, détection d'anomalies ou classification) pour des fonctionnalités intelligentes fiables en production.",
     mission:
       "Au sein d'IgniteX™, PEJOSOFT garantit que chaque système repose sur une base technique fiable, sécurisée et capable de grandir avec ses utilisateurs, y compris lorsque des modèles d'apprentissage automatique viennent enrichir le produit.",
     contributions: [
@@ -71,7 +74,7 @@ export const partners: Partner[] = [
     about:
       "JM TECHNOLOGIES porte la dimension web du groupe IgniteX™. L'entité développe les sites, portails et interfaces en ligne qui complètent nos applications mobiles et nos systèmes métiers, de la vitrine IgniteX™ aux espaces d'administration de nos clients. JM TECHNOLOGIES veille à ce que chaque projet IgniteX™ soit accessible, responsive et agréable à utiliser, que ce soit sur ordinateur, tablette ou téléphone. L'entité assure aussi l'exploitation DevOps / SRE : pipelines CI/CD, déploiements automatisés, supervision des services, gestion des incidents et fiabilité des environnements de production.",
     mission:
-      "JM TECHNOLOGIES rend visible et utilisable la puissance des systèmes IgniteX™, pour les clients finaux comme pour les équipes qui les administrent — avec des plateformes stables, surveillées et prêtes à évoluer.",
+      "JM TECHNOLOGIES rend visible et utilisable la puissance des systèmes IgniteX™, pour les clients finaux comme pour les équipes qui les administrent, avec des plateformes stables, surveillées et prêtes à évoluer.",
     contributions: [
       "Sites vitrines et portails web IgniteX™",
       "Interfaces d'administration et tableaux de bord",

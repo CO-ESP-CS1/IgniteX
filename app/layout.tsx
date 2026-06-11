@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { CookieConsent } from "@/components/cookie-consent";
 import { InstallPrompt } from "@/components/install-prompt";
+import { SplashLoader } from "@/components/splash-loader";
 import { brand } from "@/lib/data";
 import "./globals.css";
 
@@ -15,9 +16,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: `${brand.trademark} : ${brand.slogan}`,
-  description:
-    "IgniteX™ conçoit et déploie des systèmes d'information sur mesure : plateformes communautaires, e-commerce, gestion scolaire et plus. Propulsés par IgniteX™ Platform.",
+  title: `${brand.trademark} · Applications et plateformes sur mesure`,
+  description: brand.pitch,
   keywords: [
     "IgniteX",
     "développement",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   creator: brand.trademark,
   metadataBase: new URL(brand.url),
   openGraph: {
-    title: `${brand.trademark} : ${brand.slogan}`,
-    description: brand.tagline,
+    title: `${brand.trademark} · Applications et plateformes sur mesure`,
+    description: brand.pitch,
     url: brand.url,
     siteName: brand.trademark,
     locale: "fr_FR",
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${brand.trademark} : ${brand.slogan}`,
-    description: brand.tagline,
+    title: `${brand.trademark} · Applications et plateformes sur mesure`,
+    description: brand.pitch,
     images: ["/images/logo.png"],
   },
   appleWebApp: {
@@ -83,6 +83,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-full w-full min-w-0 flex-col bg-background text-foreground">
+        <SplashLoader />
         <Header />
         <main className="w-full min-w-0 flex-1">{children}</main>
         <Footer />
