@@ -323,9 +323,9 @@ export const trustedPartnerLogos: TrustedPartnerLogo[] = [
     image: "/images/partenaires/soleil-d-afrik.png",
   },
   {
-    id: "harmathon-congo",
-    name: "L'Harmattan Congo",
-    image: "/images/partenaires/harmathon-congo.png",
+    id: "jajc",
+    name: "Jeunes Ambassadeurs de Jésus-Christ",
+    image: "/images/partenaires/jajc.png",
   },
   {
     id: "loatekombo",

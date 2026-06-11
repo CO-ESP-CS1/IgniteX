@@ -15,7 +15,7 @@ SOURCES: list[tuple[str, str]] = [
     ("*148e825c*", "report-ccb.png"),
     ("*ChatGPT_Image_22_avr*", "ccb-connect.png"),
     ("*CCB_LOGO2_NEW*", "ccb-communaute.png"),
-    ("*WhatsApp_Image_2026-06-11_at_18.36*", "harmathon-congo.png"),
+    ("*jajc*", "jajc.png"),
     ("*WhatsApp_Image_2026-06-11_at_18.37*", "loatekombo.png"),
     ("*soleil-bb8d6e9c*", "soleil-d-afrik.png"),
 ]
