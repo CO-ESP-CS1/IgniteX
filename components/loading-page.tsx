@@ -1,5 +1,3 @@
-import { brand } from "@/lib/data";
-
 type LoadingPageProps = {
   className?: string;
 };
@@ -20,7 +18,8 @@ export function LoadingPage({ className = "" }: LoadingPageProps) {
             Propulsé par
           </span>
           <span className="mt-1 block text-2xl font-medium tracking-[0.06em] sm:text-[1.75rem]">
-            {brand.trademark}
+            Ignite
+            <span className="loading-page-x">X</span>™
           </span>
         </p>
 
