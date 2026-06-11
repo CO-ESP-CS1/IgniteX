@@ -32,19 +32,21 @@ export const partners: Partner[] = [
   {
     id: "pejosoft",
     name: "PEJOSOFT CORPORATION",
-    role: "Développement Backend & Android",
+    role: "Backend, Android & ML Engineering",
     description:
-      "Expertise backend robuste et applications Android natives pour des systèmes à fort volume.",
+      "Architecture backend, applications Android natives et ML Engineering pour des systèmes à fort volume et des fonctionnalités intelligentes en production.",
     teaser:
-      "PEJOSOFT pose les fondations techniques des projets IgniteX™ : serveurs solides, logique métier et applications Android prêtes pour des milliers d'utilisateurs.",
+      "PEJOSOFT pose les fondations techniques des projets IgniteX™ : serveurs solides, logique métier, applications Android et modèles ML intégrés aux services métiers.",
     image: "/images/groupe/pejosoft.png",
     about:
-      "PEJOSOFT CORPORATION est le pilier backend et Android du groupe IgniteX™. L'entité conçoit l'architecture serveur, la logique métier et les applications Android qui font tourner nos systèmes les plus exigeants, de CCB Connect à Soleil d'Afrik. Chaque projet IgniteX™ qui nécessite performance, sécurité et montée en charge passe par l'expertise PEJOSOFT : bases de données, APIs, authentification, notifications et déploiement en production.",
+      "PEJOSOFT CORPORATION est le pilier backend et Android du groupe IgniteX™. L'entité conçoit l'architecture serveur, la logique métier et les applications Android qui font tourner nos systèmes les plus exigeants, de CCB Connect à Soleil d'Afrik. Chaque projet IgniteX™ qui nécessite performance, sécurité et montée en charge passe par l'expertise PEJOSOFT : bases de données, APIs, authentification, notifications et déploiement en production. PEJOSOFT développe aussi une expertise en ML Engineering : préparation des données, entraînement et intégration de modèles dans les APIs et services métiers — recommandations, scoring, détection d'anomalies ou classification — pour des fonctionnalités intelligentes fiables en production.",
     mission:
-      "Au sein d'IgniteX™, PEJOSOFT garantit que chaque système repose sur une base technique fiable, sécurisée et capable de grandir avec ses utilisateurs.",
+      "Au sein d'IgniteX™, PEJOSOFT garantit que chaque système repose sur une base technique fiable, sécurisée et capable de grandir avec ses utilisateurs, y compris lorsque des modèles d'apprentissage automatique viennent enrichir le produit.",
     contributions: [
       "Architecture backend et APIs pour les projets IgniteX™",
       "Applications Android natives et cross-platform",
+      "ML Engineering : pipelines de données, entraînement et déploiement de modèles",
+      "Intégration de modèles ML dans les services backend (inférence, scoring, recommandations)",
       "Sécurité, authentification et gestion des accès",
       "Intégration d'IgniteX™ Platform v6.9 côté serveur",
       "Mise en production et maintenance des systèmes livrés",
@@ -60,22 +62,24 @@ export const partners: Partner[] = [
   {
     id: "jm-technologies",
     name: "JM TECHNOLOGIES",
-    role: "Développement Backend & Web",
+    role: "Backend, Web & DevOps / SRE",
     description:
-      "Architecture web moderne, interfaces professionnelles et expériences en ligne soignées.",
+      "Architecture web moderne, interfaces professionnelles et DevOps / SRE pour des déploiements fiables et des systèmes toujours disponibles.",
     teaser:
-      "JM TECHNOLOGIES donne forme au web IgniteX™ : sites vitrines, portails clients, tableaux de bord et interfaces claires pour chaque projet livré.",
+      "JM TECHNOLOGIES donne forme au web IgniteX™ : sites, portails, tableaux de bord et pipelines de déploiement pour chaque projet livré.",
     image: "/images/groupe/jm-technologies.png",
     about:
-      "JM TECHNOLOGIES porte la dimension web du groupe IgniteX™. L'entité développe les sites, portails et interfaces en ligne qui complètent nos applications mobiles et nos systèmes métiers, de la vitrine IgniteX™ aux espaces d'administration de nos clients. JM TECHNOLOGIES veille à ce que chaque projet IgniteX™ soit accessible, responsive et agréable à utiliser, que ce soit sur ordinateur, tablette ou téléphone.",
+      "JM TECHNOLOGIES porte la dimension web du groupe IgniteX™. L'entité développe les sites, portails et interfaces en ligne qui complètent nos applications mobiles et nos systèmes métiers, de la vitrine IgniteX™ aux espaces d'administration de nos clients. JM TECHNOLOGIES veille à ce que chaque projet IgniteX™ soit accessible, responsive et agréable à utiliser, que ce soit sur ordinateur, tablette ou téléphone. L'entité assure aussi l'exploitation DevOps / SRE : pipelines CI/CD, déploiements automatisés, supervision des services, gestion des incidents et fiabilité des environnements de production.",
     mission:
-      "JM TECHNOLOGIES rend visible et utilisable la puissance des systèmes IgniteX™, pour les clients finaux comme pour les équipes qui les administrent.",
+      "JM TECHNOLOGIES rend visible et utilisable la puissance des systèmes IgniteX™, pour les clients finaux comme pour les équipes qui les administrent — avec des plateformes stables, surveillées et prêtes à évoluer.",
     contributions: [
       "Sites vitrines et portails web IgniteX™",
       "Interfaces d'administration et tableaux de bord",
+      "DevOps / SRE : pipelines CI/CD et déploiements automatisés",
+      "Supervision, alerting et gestion des incidents en production",
       "Intégration frontend avec les APIs du groupe",
       "Design responsive et expérience utilisateur soignée",
-      "Déploiement web et optimisation des performances",
+      "Optimisation des performances et haute disponibilité",
     ],
     visionary: {
       name: "Moussounda Jacques",
@@ -88,19 +92,22 @@ export const partners: Partner[] = [
   {
     id: "bkt-labs",
     name: "BKT Labs",
-    role: "Développement Backend & iOS",
+    role: "Backend, iOS & LLMOps / MLOps",
     description:
-      "Expériences mobiles iOS premium et intégrations système de haut niveau.",
+      "Applications iOS premium, intégrations système et industrialisation LLMOps / MLOps pour des modèles fiables en production.",
     teaser:
-      "BKT Labs apporte l'excellence iOS à l'écosystème IgniteX™ : applications fluides, intégrations Apple et expériences mobiles haut de gamme.",
+      "BKT Labs apporte l'excellence iOS et l'exploitation IA à l'écosystème IgniteX™ : apps fluides, intégrations Apple et modèles surveillés en production.",
     image: "/images/groupe/bkt-labs.png",
     about:
-      "BKT Labs est la branche iOS et intégrations avancées du groupe IgniteX™. L'entité développe les applications iPhone et iPad qui complètent l'offre Android de PEJOSOFT, en garantissant la même qualité d'expérience sur l'écosystème Apple. BKT Labs intervient aussi sur les intégrations techniques exigeantes (paiements, notifications, services cloud) pour que chaque projet IgniteX™ fonctionne parfaitement sur tous les appareils.",
+      "BKT Labs est la branche iOS et intégrations avancées du groupe IgniteX™. L'entité développe les applications iPhone et iPad qui complètent l'offre Android de PEJOSOFT, en garantissant la même qualité d'expérience sur l'écosystème Apple. BKT Labs intervient aussi sur les intégrations techniques exigeantes (paiements, notifications, services cloud) pour que chaque projet IgniteX™ fonctionne parfaitement sur tous les appareils. BKT Labs porte en outre l'expertise LLMOps et MLOps du groupe : industrialisation des modèles, pipelines de déploiement, supervision en production, versioning des prompts et des modèles, ainsi que fiabilité et observabilité des services IA au quotidien.",
     mission:
-      "BKT Labs assure que les projets IgniteX™ offrent une expérience iOS au même niveau d'exigence que le reste de l'écosystème du groupe.",
+      "BKT Labs assure que les projets IgniteX™ offrent une expérience iOS au même niveau d'exigence que le reste de l'écosystème du groupe, et que les capacités IA déployées restent stables, surveillées et évolutives en production.",
     contributions: [
       "Applications iOS natives pour les projets IgniteX™",
       "Intégrations Apple (notifications, paiements, services)",
+      "LLMOps / MLOps : déploiement, supervision et mise à jour des modèles en production",
+      "Pipelines CI/CD pour modèles, prompts et services d'inférence",
+      "Monitoring, alerting et fiabilité des capacités IA livrées",
       "Backend complémentaire et APIs spécialisées",
       "Tests et validation sur l'écosystème iPhone/iPad",
       "Support technique iOS en production",
