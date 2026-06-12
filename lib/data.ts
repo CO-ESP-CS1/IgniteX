@@ -161,8 +161,8 @@ export const timelineEvents: TimelineEvent[] = [
     description:
       "Les entités du groupe livrent leurs premiers grands systèmes : applications communautaires, outils éducatifs et plateformes métiers déployés sur le terrain africain et international.",
     highlights: [
-      "Loatékombo ONG — outils numériques depuis 2018",
-      "L'Harmattan Congo — présence terrain depuis 2009",
+      "Loatékombo ONG — outils numériques",
+      "L'Harmattan Congo — présence terrain",
       "Premiers backends et apps mobiles en production",
     ],
   },
