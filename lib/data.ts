@@ -55,7 +55,7 @@ export const partners: Partner[] = [
       "Mise en production et maintenance des systèmes livrés",
     ],
     visionary: {
-      name: "POHO Eliezer Omar",
+      name: "Eliezer POHO",
       title: "Fondateur de PEJOSOFT CORPORATION",
       image: "/images/groupe/pejosoft-poho.png",
       thoughts:
@@ -85,7 +85,7 @@ export const partners: Partner[] = [
       "Optimisation des performances et haute disponibilité",
     ],
     visionary: {
-      name: "Moussounda Jacques",
+      name: "Jacques MOUSSOUNDA",
       title: "Fondateur de JM TECHNOLOGIES",
       image: "/images/groupe/jm-technologies-jacques.png",
       thoughts:
@@ -116,7 +116,7 @@ export const partners: Partner[] = [
       "Support technique iOS en production",
     ],
     visionary: {
-      name: "Bakouetila Vivaldi",
+      name: "Vivaldi BAKOUETILA",
       title: "Fondateur de BKT Labs",
       image: "/images/groupe/bkt-labs-vivaldi.png",
       thoughts:
