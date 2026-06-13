@@ -2,204 +2,499 @@ type IgniteXGlobeSvgProps = {
   className?: string;
 };
 
-/** Globe terrestre stylisé : continents sobres, graticule, hubs IgniteX™ */
+type City = {
+  id: string;
+  name: string;
+  lon: number;
+  lat: number;
+  hub?: boolean;
+  label?: string;
+};
+
+const CX = 260;
+const CY = 260;
+const R = 198;
+
+const CITIES: City[] = [
+  { id: "brazzaville", name: "Brazzaville", lon: 15.28, lat: -4.26, hub: true },
+  { id: "kinshasa", name: "Kinshasa", lon: 15.31, lat: -4.32 },
+  { id: "douala", name: "Douala", lon: 9.7, lat: 4.05 },
+  { id: "rabat", name: "Rabat", lon: -6.83, lat: 34.02, label: "Maroc" },
+  { id: "paris", name: "Paris", lon: 2.35, lat: 48.86, label: "France" },
+  { id: "london", name: "Londres", lon: -0.13, lat: 51.51, label: "R.-U." },
+];
+
+/** Paires connectées — hub central : Brazzaville */
+const CONNECTIONS: [string, string][] = [
+  ["brazzaville", "kinshasa"],
+  ["brazzaville", "douala"],
+  ["brazzaville", "rabat"],
+  ["brazzaville", "paris"],
+  ["brazzaville", "london"],
+  ["douala", "paris"],
+  ["rabat", "paris"],
+  ["paris", "london"],
+  ["douala", "kinshasa"],
+];
+
+function geoToSvg(lon: number, lat: number) {
+  return {
+    x: CX + (lon / 180) * R * 0.93,
+    y: CY - (lat / 90) * R * 0.89,
+  };
+}
+
+function getCity(id: string) {
+  const city = CITIES.find((c) => c.id === id);
+  if (!city) throw new Error(`Unknown city: ${id}`);
+  return { ...city, ...geoToSvg(city.lon, city.lat) };
+}
+
+function arcPath(
+  from: { x: number; y: number },
+  to: { x: number; y: number },
+  bend = 0.28
+) {
+  const mx = (from.x + to.x) / 2;
+  const my = (from.y + to.y) / 2;
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  const dist = Math.hypot(dx, dy) || 1;
+  const ctrlX = mx - (dy / dist) * dist * bend;
+  const ctrlY = my + (dx / dist) * dist * bend;
+  return `M ${from.x.toFixed(1)} ${from.y.toFixed(1)} Q ${ctrlX.toFixed(1)} ${ctrlY.toFixed(1)} ${to.x.toFixed(1)} ${to.y.toFixed(1)}`;
+}
+
+/** Globe terrestre stylisé : continents détaillés, réseau IgniteX™ */
 export function IgniteXGlobeSvg({ className = "" }: IgniteXGlobeSvgProps) {
+  const cityMap = Object.fromEntries(CITIES.map((c) => [c.id, getCity(c.id)]));
+
   return (
     <div
       className={`globe-svg-wrap ${className}`}
       role="img"
-      aria-label="Globe terrestre IgniteX : présence en Afrique, en Europe et déploiements cloud internationaux"
+      aria-label="Globe terrestre IgniteX : réseau connectant Brazzaville, Kinshasa, Douala, le Maroc, la France et le Royaume-Uni"
     >
       <svg
         viewBox="0 0 520 520"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="mx-auto h-auto w-full max-w-lg"
+        className="mx-auto h-auto w-full max-w-xl"
       >
         <defs>
           <clipPath id="ix-globe-clip">
-            <circle cx="260" cy="260" r="198" />
+            <circle cx={CX} cy={CY} r={R} />
           </clipPath>
-          <radialGradient id="ix-ocean" cx="42%" cy="38%" r="68%">
-            <stop offset="0%" stopColor="#0c4a6e" />
-            <stop offset="55%" stopColor="#082f49" />
-            <stop offset="100%" stopColor="#041018" />
+
+          <radialGradient id="ix-ocean" cx="38%" cy="32%" r="72%">
+            <stop offset="0%" stopColor="#0e5a82" />
+            <stop offset="45%" stopColor="#083552" />
+            <stop offset="100%" stopColor="#020a12" />
           </radialGradient>
-          <radialGradient id="ix-sphere-light" cx="32%" cy="28%" r="55%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.14" />
+
+          <radialGradient id="ix-sphere-light" cx="28%" cy="22%" r="58%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.22" />
+            <stop offset="55%" stopColor="#7dd3fc" stopOpacity="0.06" />
             <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
           </radialGradient>
-          <linearGradient id="ix-arc-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#4dcaf1" />
-            <stop offset="100%" stopColor="#00aeef" stopOpacity="0.45" />
+
+          <radialGradient id="ix-atmosphere" cx="50%" cy="50%" r="50%">
+            <stop offset="82%" stopColor="#00aeef" stopOpacity="0" />
+            <stop offset="92%" stopColor="#4dcaf1" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#00aeef" stopOpacity="0.35" />
+          </radialGradient>
+
+          <linearGradient id="ix-land-af" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#2d6b55" />
+            <stop offset="100%" stopColor="#1a4538" />
           </linearGradient>
-          <filter id="ix-node-glow" x="-80%" y="-80%" width="260%" height="260%">
-            <feGaussianBlur stdDeviation="2.5" result="b" />
+
+          <linearGradient id="ix-land-eu" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#4a6278" />
+            <stop offset="100%" stopColor="#2f4050" />
+          </linearGradient>
+
+          <linearGradient id="ix-land-am" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#3d6b58" />
+            <stop offset="100%" stopColor="#2a4a3e" />
+          </linearGradient>
+
+          <linearGradient id="ix-arc-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#fde68a" />
+            <stop offset="50%" stopColor="#f5c842" />
+            <stop offset="100%" stopColor="#e8a820" />
+          </linearGradient>
+
+          <linearGradient id="ix-arc-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#4dcaf1" />
+            <stop offset="100%" stopColor="#00aeef" />
+          </linearGradient>
+
+          <filter id="ix-glow-gold" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="3" result="b" />
             <feMerge>
               <feMergeNode in="b" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+
+          <filter id="ix-glow-blue" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="2" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+
+          <filter id="ix-label-shadow">
+            <feDropShadow dx="0" dy="1" stdDeviation="1.5" floodColor="#000" floodOpacity="0.55" />
+          </filter>
         </defs>
 
-        {/* Halo extérieur */}
-        <circle
-          cx="260"
-          cy="260"
-          r="210"
-          stroke="url(#ix-arc-grad)"
-          strokeWidth="1"
-          strokeOpacity="0.35"
-        />
-        <circle cx="260" cy="260" r="198" fill="url(#ix-ocean)" />
+        {/* Anneaux atmosphère */}
+        <circle cx={CX} cy={CY} r={R + 14} stroke="#00aeef" strokeWidth="0.5" strokeOpacity="0.12" />
+        <circle cx={CX} cy={CY} r={R + 8} stroke="#4dcaf1" strokeWidth="0.75" strokeOpacity="0.2" />
+        <circle cx={CX} cy={CY} r={R + 2} stroke="url(#ix-arc-blue)" strokeWidth="1" strokeOpacity="0.35" />
+
+        <circle cx={CX} cy={CY} r={R} fill="url(#ix-ocean)" />
 
         <g clipPath="url(#ix-globe-clip)">
           {/* Graticule */}
-          <g stroke="#ffffff" strokeOpacity="0.07" strokeWidth="0.75">
+          <g stroke="#ffffff" strokeOpacity="0.06" strokeWidth="0.6">
             {[-60, -30, 0, 30, 60].map((lat) => {
-              const y = 260 + (lat / 90) * 175;
+              const y = CY - (lat / 90) * R * 0.89;
+              const rx = Math.cos((lat * Math.PI) / 180) * R * 0.96;
               return (
                 <ellipse
                   key={`lat-${lat}`}
-                  cx="260"
-                  cy="260"
-                  rx={Math.cos((lat * Math.PI) / 180) * 198}
-                  ry={198 * 0.28}
-                  transform={`translate(0 ${y - 260})`}
+                  cx={CX}
+                  cy={y}
+                  rx={rx}
+                  ry={R * 0.045 + Math.abs(lat) * 0.01}
                   fill="none"
                 />
               );
             })}
             {[-120, -90, -60, -30, 0, 30, 60, 90, 120].map((lon) => {
-              const x = 260 + (lon / 180) * 198;
-              return (
-                <line key={`lon-${lon}`} x1={x} y1="62" x2={x} y2="458" />
-              );
+              const x = CX + (lon / 180) * R * 0.93;
+              return <line key={`lon-${lon}`} x1={x} y1={CY - R} x2={x} y2={CY + R} />;
             })}
           </g>
 
-          {/* Continents — projection équirectangulaire dans le cercle */}
-          <g transform="translate(62 62) scale(0.396)">
+          {/* ——— Continents ——— */}
+          <g>
             {/* Amérique du Nord */}
             <path
-              d="M 72 88 L 118 62 L 168 58 L 210 72 L 248 98 L 262 128 L 248 168 L 218 198 L 178 212 L 138 205 L 98 188 L 72 158 L 62 122 Z"
-              fill="#4a6274"
-              fillOpacity="0.92"
-              stroke="#6b8496"
-              strokeWidth="2"
-              strokeOpacity="0.5"
+              d="M 58 108 L 88 78 L 128 68 L 168 72 L 208 88 L 238 108 L 252 138 L 248 168 L 228 198 L 198 218 L 158 228 L 118 218 L 88 198 L 68 168 L 58 138 Z"
+              fill="url(#ix-land-am)"
+              stroke="#5a8a72"
+              strokeWidth="1.2"
+              strokeOpacity="0.45"
             />
             {/* Amérique du Sud */}
             <path
-              d="M 168 228 L 198 218 L 218 238 L 228 278 L 218 328 L 192 368 L 168 382 L 148 352 L 142 298 L 152 248 Z"
-              fill="#3f5f4a"
-              fillOpacity="0.9"
-              stroke="#5a7d64"
-              strokeWidth="2"
-              strokeOpacity="0.45"
+              d="M 168 248 L 198 238 L 218 258 L 228 298 L 222 348 L 202 388 L 178 408 L 158 388 L 148 338 L 152 288 L 162 258 Z"
+              fill="#2a5244"
+              stroke="#4a7560"
+              strokeWidth="1.2"
+              strokeOpacity="0.4"
             />
             {/* Europe */}
             <path
-              d="M 268 98 L 298 88 L 328 92 L 348 108 L 352 128 L 338 148 L 312 158 L 282 152 L 262 132 Z"
-              fill="#5c6678"
-              fillOpacity="0.92"
-              stroke="#7a8496"
-              strokeWidth="2"
+              d="M 248 118 L 278 108 L 308 112 L 328 128 L 338 148 L 332 168 L 308 178 L 278 172 L 252 158 L 242 138 Z"
+              fill="url(#ix-land-eu)"
+              stroke="#6a8298"
+              strokeWidth="1.2"
               strokeOpacity="0.45"
             />
-            {/* Afrique */}
+            {/* Royaume-Uni / îles */}
             <path
-              d="M 278 168 L 312 158 L 342 168 L 358 198 L 362 248 L 352 298 L 328 338 L 298 358 L 272 348 L 258 308 L 262 258 L 268 198 Z"
-              fill="#2f6b5c"
-              fillOpacity="0.95"
-              stroke="#4d8f7c"
-              strokeWidth="2.5"
-              strokeOpacity="0.55"
-            />
-            {/* Moyen-Orient / Asie occidentale */}
-            <path
-              d="M 352 128 L 388 118 L 418 128 L 432 158 L 422 188 L 392 198 L 362 188 L 352 158 Z"
-              fill="#6b5d52"
-              fillOpacity="0.88"
-              stroke="#8a7c70"
-              strokeWidth="2"
-              strokeOpacity="0.4"
+              d="M 238 128 L 246 122 L 252 128 L 248 138 L 240 140 Z"
+              fill="#556878"
+              stroke="#7a92a8"
+              strokeWidth="0.8"
+              strokeOpacity="0.5"
             />
             {/* Asie */}
             <path
-              d="M 388 108 L 458 88 L 528 98 L 578 128 L 598 168 L 588 218 L 548 248 L 498 258 L 448 238 L 408 208 L 388 168 Z"
-              fill="#5a5048"
-              fillOpacity="0.9"
-              stroke="#756a60"
-              strokeWidth="2"
+              d="M 338 98 L 388 82 L 448 88 L 498 108 L 518 138 L 512 178 L 488 208 L 448 228 L 398 222 L 358 198 L 338 168 L 332 128 Z"
+              fill="#3a4848"
+              stroke="#5a6868"
+              strokeWidth="1.2"
               strokeOpacity="0.4"
+            />
+            {/* Moyen-Orient */}
+            <path
+              d="M 328 148 L 358 138 L 378 148 L 382 168 L 368 188 L 342 192 L 328 172 Z"
+              fill="#4a4038"
+              stroke="#6a6058"
+              strokeWidth="1"
+              strokeOpacity="0.35"
             />
             {/* Océanie */}
             <path
-              d="M 498 298 L 538 288 L 568 308 L 572 338 L 548 358 L 512 352 L 492 328 Z"
-              fill="#4a6358"
-              fillOpacity="0.85"
-              stroke="#628078"
-              strokeWidth="2"
+              d="M 428 298 L 458 288 L 478 302 L 482 328 L 462 348 L 432 342 L 418 318 Z"
+              fill="#2a4840"
+              stroke="#4a6860"
+              strokeWidth="1"
+              strokeOpacity="0.35"
+            />
+
+            {/* Afrique — masse continentale */}
+            <path
+              d="M 248 178 L 278 168 L 308 172 L 338 188 L 358 218 L 368 258 L 362 298 L 348 338 L 322 368 L 288 382 L 258 372 L 242 338 L 238 298 L 242 258 L 248 218 Z"
+              fill="url(#ix-land-af)"
+              stroke="#4d9a82"
+              strokeWidth="1.5"
+              strokeOpacity="0.55"
+            />
+
+            {/* Pays africains — teintes drapeau (style carte référence) */}
+            {/* Maroc */}
+            <path
+              d="M 228 188 L 252 182 L 258 198 L 252 212 L 232 210 L 224 198 Z"
+              fill="#c1272d"
+              fillOpacity="0.55"
+              stroke="#e04050"
+              strokeWidth="0.8"
               strokeOpacity="0.4"
             />
+            {/* Sénégal / côte ouest */}
+            <path
+              d="M 218 218 L 238 212 L 242 228 L 232 242 L 216 238 Z"
+              fill="#00853f"
+              fillOpacity="0.4"
+              stroke="#00a050"
+              strokeWidth="0.6"
+              strokeOpacity="0.35"
+            />
+            {/* Cameroun (Douala) */}
+            <path
+              d="M 252 228 L 272 222 L 278 238 L 268 252 L 252 248 Z"
+              fill="#007a5e"
+              fillOpacity="0.5"
+              stroke="#fcd116"
+              strokeWidth="0.8"
+              strokeOpacity="0.45"
+            />
+            {/* Congo Brazzaville */}
+            <path
+              d="M 268 268 L 284 262 L 290 278 L 280 292 L 266 288 Z"
+              fill="#009543"
+              fillOpacity="0.55"
+              stroke="#fbde4a"
+              strokeWidth="0.8"
+              strokeOpacity="0.5"
+            />
+            {/* RDC Kinshasa */}
+            <path
+              d="M 284 262 L 302 258 L 308 278 L 298 298 L 280 292 L 276 272 Z"
+              fill="#007fff"
+              fillOpacity="0.45"
+              stroke="#fcd116"
+              strokeWidth="0.8"
+              strokeOpacity="0.4"
+            />
+            {/* Gabon */}
+            <path
+              d="M 268 292 L 282 288 L 286 302 L 274 312 L 262 306 Z"
+              fill="#009e60"
+              fillOpacity="0.4"
+              stroke="#3a9a78"
+              strokeWidth="0.6"
+              strokeOpacity="0.35"
+            />
+
+            {/* Frontières intérieures Afrique */}
+            <g stroke="#ffffff" strokeWidth="0.5" strokeOpacity="0.12" fill="none">
+              <path d="M 248 218 L 358 218" />
+              <path d="M 242 258 L 362 258" />
+              <path d="M 238 298 L 348 298" />
+              <path d="M 258 178 L 268 382" />
+              <path d="M 298 172 L 308 372" />
+            </g>
+          </g>
+
+          {/* Labels continents */}
+          <g
+            fontFamily="var(--font-outfit), system-ui, sans-serif"
+            fontSize="13"
+            fontWeight="800"
+            letterSpacing="0.18em"
+            fill="#ffffff"
+            fillOpacity="0.18"
+          >
+            <text x="288" y="248" textAnchor="middle">
+              AFRIQUE
+            </text>
+            <text x="288" y="142" textAnchor="middle">
+              EUROPE
+            </text>
+            <text x="148" y="168" textAnchor="middle">
+              AMÉRIQUES
+            </text>
+            <text x="428" y="168" textAnchor="middle">
+              ASIE
+            </text>
           </g>
 
           {/* Lumière sphère */}
-          <circle cx="260" cy="260" r="198" fill="url(#ix-sphere-light)" />
+          <circle cx={CX} cy={CY} r={R} fill="url(#ix-sphere-light)" />
+
+          {/* ——— Réseau de connexion ——— */}
+          <g fill="none" strokeLinecap="round">
+          {CONNECTIONS.map(([fromId, toId], i) => {
+            const from = cityMap[fromId];
+            const to = cityMap[toId];
+            const isHub = fromId === "brazzaville" || toId === "brazzaville";
+            const isLocal =
+              ["brazzaville", "kinshasa", "douala"].includes(fromId) &&
+              ["brazzaville", "kinshasa", "douala"].includes(toId);
+            const path = arcPath(from, to, isLocal ? 0.12 : 0.32);
+            const stroke = isHub && !isLocal ? "url(#ix-arc-gold)" : "url(#ix-arc-blue)";
+            const width = isLocal ? 1.2 : isHub ? 2.2 : 1.5;
+            const opacity = isLocal ? 0.55 : isHub ? 0.92 : 0.72;
+
+            return (
+              <g key={`${fromId}-${toId}`}>
+                <path
+                  d={path}
+                  stroke={stroke}
+                  strokeWidth={width + 2}
+                  strokeOpacity={opacity * 0.25}
+                  filter="url(#ix-glow-blue)"
+                />
+                <path
+                  d={path}
+                  stroke={stroke}
+                  strokeWidth={width}
+                  strokeOpacity={opacity}
+                  className="globe-line-flow"
+                  style={{ animationDelay: `${i * 0.35}s` }}
+                  strokeDasharray={isLocal ? "4 6" : "8 10"}
+                />
+              </g>
+            );
+          })}
         </g>
 
-        {/* Arcs de connexion (au-dessus du globe) */}
-        <g stroke="url(#ix-arc-grad)" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.85">
-          <path d="M 198 312 Q 230 220 302 198" />
-          <path d="M 198 312 Q 160 240 128 208" />
-          <path d="M 302 198 Q 360 160 388 148" />
-          <path d="M 198 312 Q 248 280 278 268" />
+        {/* Nœuds */}
+        <g filter="url(#ix-glow-blue)">
+          {CITIES.map((city) => {
+            const pos = cityMap[city.id];
+            const r = city.hub ? 7 : city.id === "kinshasa" ? 5 : 4.5;
+            const fill = city.hub ? "#f5c842" : "#4dcaf1";
+            const offsetX = city.id === "kinshasa" ? 8 : 0;
+            const offsetY = city.id === "kinshasa" ? 6 : 0;
+
+            return (
+              <g key={city.id} transform={`translate(${offsetX} ${offsetY})`}>
+                {city.hub && (
+                  <>
+                    <circle
+                      className="globe-node-ring"
+                      cx={pos.x - offsetX}
+                      cy={pos.y - offsetY}
+                      r={14}
+                      stroke="#f5c842"
+                      strokeWidth="1"
+                      fill="none"
+                      strokeOpacity="0.35"
+                    />
+                    <circle
+                      className="globe-node-ring globe-node-ring--delay"
+                      cx={pos.x - offsetX}
+                      cy={pos.y - offsetY}
+                      r={20}
+                      stroke="#f5c842"
+                      strokeWidth="0.75"
+                      fill="none"
+                      strokeOpacity="0.2"
+                    />
+                  </>
+                )}
+                <circle
+                  className={city.hub ? "globe-node-pulse" : undefined}
+                  cx={pos.x - offsetX}
+                  cy={pos.y - offsetY}
+                  r={r}
+                  fill={fill}
+                  filter={city.hub ? "url(#ix-glow-gold)" : undefined}
+                />
+                <circle
+                  cx={pos.x - offsetX}
+                  cy={pos.y - offsetY}
+                  r={r * 0.35}
+                  fill="#ffffff"
+                  fillOpacity="0.85"
+                />
+              </g>
+            );
+          })}
         </g>
 
-        {/* Nœuds hubs */}
-        <g filter="url(#ix-node-glow)">
-          <circle className="globe-node-pulse" cx="198" cy="312" r="5.5" fill="#00aeef" />
-          <circle cx="302" cy="198" r="4.5" fill="#4dcaf1" />
-          <circle cx="128" cy="208" r="4" fill="#4dcaf1" />
-          <circle cx="388" cy="148" r="4" fill="#38bdf8" />
-          <circle cx="278" cy="268" r="3.5" fill="#007bab" />
+        {/* Labels villes */}
+        <g
+          fontFamily="var(--font-outfit), system-ui, sans-serif"
+          fill="#ffffff"
+          filter="url(#ix-label-shadow)"
+        >
+          {CITIES.map((city) => {
+            const pos = cityMap[city.id];
+            const offsetX = city.id === "kinshasa" ? 8 : 0;
+            const offsetY = city.id === "kinshasa" ? 6 : 0;
+            const x = pos.x + offsetX;
+            const y = pos.y + offsetY;
+            const isHub = city.hub;
+            const isLeft = city.id === "douala" || city.id === "rabat";
+            const isRight = city.id === "kinshasa";
+
+            return (
+              <g key={`label-${city.id}`}>
+                <text
+                  x={x + (isLeft ? -10 : isRight ? 10 : 0)}
+                  y={y + (isHub ? 22 : city.id === "paris" || city.id === "london" ? -10 : 16)}
+                  textAnchor={isLeft ? "end" : isRight ? "start" : "middle"}
+                  fontSize={isHub ? 12 : 10.5}
+                  fontWeight={isHub ? 800 : 600}
+                  fill={isHub ? "#fde68a" : "#e2f4fc"}
+                >
+                  {city.name}
+                </text>
+                {city.label && (
+                  <text
+                    x={x + (isLeft ? -10 : 0)}
+                    y={y + (city.id === "paris" || city.id === "london" ? 4 : -6)}
+                    textAnchor={isLeft ? "end" : "middle"}
+                    fontSize="8.5"
+                    fontWeight="500"
+                    fill="#94a3b8"
+                  >
+                    {city.label}
+                  </text>
+                )}
+              </g>
+            );
+          })}
+        </g>
         </g>
 
-        {/* Labels */}
-        <g fontFamily="var(--font-outfit), system-ui, sans-serif" fill="currentColor">
-          <text x="198" y="336" textAnchor="middle" fontSize="11" fontWeight="700" opacity="0.95">
-            Brazzaville
-          </text>
-          <text x="302" y="188" textAnchor="middle" fontSize="10" fontWeight="600" opacity="0.8">
-            Kinshasa
-          </text>
-          <text x="128" y="198" textAnchor="end" fontSize="10" fontWeight="600" opacity="0.8">
-            Paris
-          </text>
-          <text x="388" y="138" textAnchor="start" fontSize="10" fontWeight="600" opacity="0.75">
-            Cloud
-          </text>
-          <text x="278" y="286" textAnchor="middle" fontSize="9.5" opacity="0.7">
-            Douala
-          </text>
-        </g>
+        {/* Atmosphère finale */}
+        <circle cx={CX} cy={CY} r={R} fill="url(#ix-atmosphere)" pointerEvents="none" />
 
         {/* Badge IgniteX */}
-        <g transform="translate(400 400)">
-          <circle r="28" fill="#082f49" stroke="#00aeef" strokeWidth="1.5" strokeOpacity="0.6" />
-          <path
-            d="M -2 -10 L 4 -10 L 10 2 L 4 14 L -2 14 L 2 2 Z"
-            fill="#4dcaf1"
-          />
+        <g transform="translate(408 412)">
+          <circle r="30" fill="#041018" fillOpacity="0.92" stroke="#00aeef" strokeWidth="1.5" strokeOpacity="0.55" />
+          <circle r="26" stroke="#f5c842" strokeWidth="0.5" strokeOpacity="0.35" fill="none" />
+          <path d="M -2 -11 L 5 -11 L 11 1 L 5 13 L -2 13 L 3 1 Z" fill="#4dcaf1" />
           <text
-            y="24"
+            y="26"
             textAnchor="middle"
-            fill="currentColor"
+            fill="#e2f4fc"
             fontSize="9"
             fontWeight="700"
             fontFamily="var(--font-outfit), sans-serif"
-            opacity="0.9"
+            opacity="0.95"
           >
             IgniteX™
           </text>
