@@ -18,6 +18,8 @@ SOURCES: list[tuple[str, str]] = [
     ("*jajc*", "jajc.png"),
     ("*WhatsApp_Image_2026-06-11_at_18.37*", "loatekombo.png"),
     ("*soleil-bb8d6e9c*", "soleil-d-afrik.png"),
+    ("*WhatsApp_Image_2026-06-13_at_14.49*", "ambitech-dynamics.png"),
+    ("*WhatsApp_Image_2026-06-13_at_14.48*", "openmoney.png"),
 ]
 
 CANVAS_W, CANVAS_H = 480, 300

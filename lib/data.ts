@@ -332,6 +332,16 @@ export const trustedPartnerLogos: TrustedPartnerLogo[] = [
     name: "Loatékombo ONG",
     image: "/images/partenaires/loatekombo.png",
   },
+  {
+    id: "ambitech-dynamics",
+    name: "AmbiTech Dynamics",
+    image: "/images/partenaires/ambitech-dynamics.png",
+  },
+  {
+    id: "openmoney",
+    name: "OpenMoney",
+    image: "/images/partenaires/openmoney.png",
+  },
 ];
 
 export const pillars = [
