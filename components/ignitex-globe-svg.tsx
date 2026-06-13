@@ -129,26 +129,6 @@ export function IgniteXGlobeSvg({ className = "" }: IgniteXGlobeSvgProps) {
             <stop offset="0%" stopColor="#4dcaf1" />
             <stop offset="100%" stopColor="#00aeef" />
           </linearGradient>
-
-          <filter id="ix-glow-gold" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="3" result="b" />
-            <feMerge>
-              <feMergeNode in="b" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-
-          <filter id="ix-glow-blue" x="-80%" y="-80%" width="260%" height="260%">
-            <feGaussianBlur stdDeviation="2" result="b" />
-            <feMerge>
-              <feMergeNode in="b" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-
-          <filter id="ix-label-shadow">
-            <feDropShadow dx="0" dy="1" stdDeviation="1.5" floodColor="#000" floodOpacity="0.55" />
-          </filter>
         </defs>
 
         {/* Anneaux atmosphère */}
@@ -343,7 +323,7 @@ export function IgniteXGlobeSvg({ className = "" }: IgniteXGlobeSvgProps) {
 
           {/* ——— Réseau de connexion ——— */}
           <g fill="none" strokeLinecap="round">
-          {CONNECTIONS.map(([fromId, toId], i) => {
+          {CONNECTIONS.map(([fromId, toId]) => {
             const from = cityMap[fromId];
             const to = cityMap[toId];
             const isHub = fromId === "brazzaville" || toId === "brazzaville";
@@ -356,30 +336,19 @@ export function IgniteXGlobeSvg({ className = "" }: IgniteXGlobeSvgProps) {
             const opacity = isLocal ? 0.55 : isHub ? 0.92 : 0.72;
 
             return (
-              <g key={`${fromId}-${toId}`}>
-                <path
-                  d={path}
-                  stroke={stroke}
-                  strokeWidth={width + 2}
-                  strokeOpacity={opacity * 0.25}
-                  filter="url(#ix-glow-blue)"
-                />
-                <path
-                  d={path}
-                  stroke={stroke}
-                  strokeWidth={width}
-                  strokeOpacity={opacity}
-                  className="globe-line-flow"
-                  style={{ animationDelay: `${i * 0.35}s` }}
-                  strokeDasharray={isLocal ? "4 6" : "8 10"}
-                />
-              </g>
+              <path
+                key={`${fromId}-${toId}`}
+                d={path}
+                stroke={stroke}
+                strokeWidth={width}
+                strokeOpacity={opacity}
+              />
             );
           })}
         </g>
 
         {/* Nœuds */}
-        <g filter="url(#ix-glow-blue)">
+        <g>
           {CITIES.map((city) => {
             const pos = cityMap[city.id];
             const r = city.hub ? 7 : city.id === "kinshasa" ? 5 : 4.5;
@@ -390,36 +359,21 @@ export function IgniteXGlobeSvg({ className = "" }: IgniteXGlobeSvgProps) {
             return (
               <g key={city.id} transform={`translate(${offsetX} ${offsetY})`}>
                 {city.hub && (
-                  <>
-                    <circle
-                      className="globe-node-ring"
-                      cx={pos.x - offsetX}
-                      cy={pos.y - offsetY}
-                      r={14}
-                      stroke="#f5c842"
-                      strokeWidth="1"
-                      fill="none"
-                      strokeOpacity="0.35"
-                    />
-                    <circle
-                      className="globe-node-ring globe-node-ring--delay"
-                      cx={pos.x - offsetX}
-                      cy={pos.y - offsetY}
-                      r={20}
-                      stroke="#f5c842"
-                      strokeWidth="0.75"
-                      fill="none"
-                      strokeOpacity="0.2"
-                    />
-                  </>
+                  <circle
+                    cx={pos.x - offsetX}
+                    cy={pos.y - offsetY}
+                    r={16}
+                    stroke="#f5c842"
+                    strokeWidth="1"
+                    fill="none"
+                    strokeOpacity="0.28"
+                  />
                 )}
                 <circle
-                  className={city.hub ? "globe-node-pulse" : undefined}
                   cx={pos.x - offsetX}
                   cy={pos.y - offsetY}
                   r={r}
                   fill={fill}
-                  filter={city.hub ? "url(#ix-glow-gold)" : undefined}
                 />
                 <circle
                   cx={pos.x - offsetX}
@@ -437,7 +391,6 @@ export function IgniteXGlobeSvg({ className = "" }: IgniteXGlobeSvgProps) {
         <g
           fontFamily="var(--font-outfit), system-ui, sans-serif"
           fill="#ffffff"
-          filter="url(#ix-label-shadow)"
         >
           {CITIES.map((city) => {
             const pos = cityMap[city.id];
